@@ -22,7 +22,7 @@ bdfresize -f 2 "out/kirsch$v.bdf" >"out/kirsch_2x$v.bdf"
 
 # kbitx -> otb
 java -jar deps/BitsNPicas.jar convertbitmap -f otb -o "out/kirsch$v.otb" src/kirsch.kbitx
-bdfresize -f 2 "out/kirsch$v.bdf" >"out/kirsch_2x$v.otb"
+bdfresize -f 2 "out/kirsch$v.otb" >"out/kirsch_2x$v.otb"
 
 # kbitx -> ttf
 java -jar deps/BitsNPicas.jar convertbitmap -f ttf -o "out/kirsch$v.ttf" src/kirsch.kbitx
