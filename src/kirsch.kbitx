@@ -2,10 +2,10 @@
 <!DOCTYPE kbits PUBLIC "-//Kreative//DTD BitsNPicasBitmap 1.0//EN" "http://www.kreativekorp.com/dtd/kbitx.dtd">
 <kbits>
 <prop id="emAscent" value="12"/>
-<prop id="emDescent" value="3"/>
+<prop id="emDescent" value="4"/>
 <prop id="lineAscent" value="12"/>
-<prop id="lineDescent" value="3"/>
-<prop id="lineGap" value="1"/>
+<prop id="lineDescent" value="4"/>
+<prop id="lineGap" value="0"/>
 <prop id="xHeight" value="5"/>
 <prop id="capHeight" value="9"/>
 <name id="0" value="Copyright (c) 2024, Benjamin Pang (@molarmanful)"/>
@@ -1203,7 +1203,7 @@
 <g u="9629" x="3" y="12" w="6" d="CARh"/>
 <g u="9630" x="0" y="12" w="6" d="EAcDRANEA0QDRANEA0QDRANIA0QDRANEA0QDRANEA0QD"/>
 <g u="9631" x="0" y="12" w="6" d="EAcDRANEA0QDRANEA0QDRANhXA"/>
-<g u="9632" x="0" y="7" w="6" d="BwdhUQ"/>
+<g u="9632" x="0" y="6" w="6" d="BwdhUQ"/>
 <g u="9674" x="1" y="8" w="6" d="CQUCQQRBA8P/AP8Cxf8A/wD/A8X/AP8A/wLD/wD/A0EEQQI"/>
 <g u="10240" x="0" y="0" w="6" d="AAA"/>
 <g u="10241" x="1" y="11" w="6" d="AgJDAQ"/>
@@ -1461,6 +1461,28 @@
 <g u="10493" x="1" y="11" w="6" d="DgVCAUMCQQ5CA0ELQgFDAkELQgFDAsL/AA"/>
 <g u="10494" x="1" y="11" w="6" d="DgUDQgNBC0IBQwJBC0IBQwJBC0IBQwLC/wA"/>
 <g u="10495" x="1" y="11" w="6" d="DgVCAUMCQQtCAUMCQQtCAUMCQQtCAUMCwv8A"/>
+<g u="57504" x="1" y="9" w="6" d="CgVBBEECxP8A/wBEAsP/AP8CQQNBA0EDQQRBBEEE"/>
+<g u="57505" x="1" y="9" w="6" d="CQVBBEEEQQRDCEECwv8AQsUA/wD/AELCAP8CQQ"/>
+<g u="57506" x="1" y="8" w="6" d="CAUBQwLD/wD/AsT/AP8ARwFEAUcBQwE"/>
+<g u="57507" x="1" y="9" w="6" d="CQUBQgJBBEEFQghBAsL/AELFAP8A/wBCwgD/AkE"/>
+<g u="57520" x="0" y="11" w="6" d="DgdBBkIFQwREA0UCRgFUAUUCRANDBEIFQQY"/>
+<g u="57521" x="0" y="11" w="6" d="DgdBB0EHQQdBB0EHQQdBBkEFQQVBBUEFQQVBBUEG"/>
+<g u="57522" x="-1" y="11" w="6" d="DgcGQQVCBEMDRAJFAVQBRgJFA0QEQwVCBkE"/>
+<g u="57523" x="-1" y="11" w="6" d="DgcGQQVBBUEFQQVBBUEFQQZBB0EHQQdBB0EHQQdB"/>
+<g u="57524" x="0" y="12" w="6" d="EAdCBUQDRQJGAUYBYVABRgFFAkQDQgU"/>
+<g u="57525" x="0" y="12" w="6" d="EAdCB0IHQQdBBkEHQQZBBkEGQQZBBkEFQQZBBUEEQgNCBQ"/>
+<g u="57526" x="-1" y="12" w="6" d="EAcFQgNEAkUBRgFhUAFGAUYCRQNEBUI"/>
+<g u="57527" x="-1" y="12" w="6" d="EAcFQgNCBEEFQQZBBUEGQQZBBkEGQQZBB0EGQQdBB0IHQg"/>
+<g u="57528" x="0" y="12" w="6" d="EAZBBUEFQgRCBEIEQwNDA0MDRAJEAkQCRQFFAUUBTA"/>
+<g u="57529" x="0" y="12" w="6" d="EAZBBUEGQQVBBUEGQQVBBUEGQQVBBUEGQQVBBUEGQQVB"/>
+<g u="57530" x="0" y="12" w="6" d="EAYFQQVBBEIEQgRCA0MDQwNDAkQCRAJEAUUBRQFR"/>
+<g u="57531" x="0" y="12" w="6" d="EAYFQQVBBEEFQQVBBEEFQQVBBEEFQQVBBEEFQQVBBEEFQQU"/>
+<g u="57532" x="0" y="12" w="6" d="EAZRAUUBRQFEAkQCRAJDA0MDQwNCBEIEQgRBBUEF"/>
+<g u="57533" x="0" y="12" w="6" d="EAYFQQVBBEEFQQVBBEEFQQVBBEEFQQVBBEEFQQVBBEEFQQU"/>
+<g u="57534" x="0" y="12" w="6" d="EAZMAUUBRQFFAkQCRAJEA0MDQwNDBEIEQgRCBUEFQQ"/>
+<g u="57535" x="0" y="12" w="6" d="EAZBBUEGQQVBBUEGQQVBBUEGQQVBBUEGQQVBBUEGQQVB"/>
+<g u="57554" x="0" y="12" w="6" d="EARHAUMBQgJCAkEDQQtBA0EDQgJCAkMBQwFE"/>
+<g u="57556" x="2" y="12" w="6" d="EAREAUMBQwJCAkIDQQNBC0EDQQJCAkIBQwFH"/>
 <g u="64257" x="1" y="9" w="6" d="DAUCQgJBBEECw/8A/wNFwgD/AsP/AP8Cw/8A/wLD/wD/AsP/AP8EQQNBBA"/>
 <g u="64258" x="1" y="9" w="6" d="DAUCQ8IA/wLD/wD/AsP/AP8CRMQA/wD/AsP/AP8Cw/8A/wLD/wD/AsP/AP8EQQNBBA"/>
 </kbits>

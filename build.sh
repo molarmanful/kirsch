@@ -3,7 +3,9 @@
 while getopts ":v:" o; do
 	case $o in
 	v)
-		[ "$OPTARG" != "" ] && v="_$OPTARG"
+		if [ "$OPTARG" != "" ]; then
+			v=$OPTARG
+		fi
 		;;
 	*) ;;
 	esac
@@ -12,20 +14,39 @@ done
 rm -rf out
 mkdir -p deps out
 
-[ ! -f deps/BitsNPicas.jar ] && wget -O deps/BitsNPicas.jar "https://github.com/kreativekorp/bitsnpicas/releases/latest/download/BitsNPicas.jar"
+[ ! -f deps/BitsNPicas.jar ] && wget -O deps/BitsNPicas.jar https://github.com/kreativekorp/bitsnpicas/releases/latest/download/BitsNPicas.jar
+[ ! -f deps/fontforge ] && wget -O deps/fontforge https://github.com/fontforge/fontforge/releases/download/20230101/FontForge-2023-01-01-a1dad3e-x86_64.AppImage && chmod +x deps/fontforge
 
 cp LICENSE out
+cp README.md out
 
-# kbitx -> bdf
-java -jar deps/BitsNPicas.jar convertbitmap -f bdf -o "out/kirsch$v.bdf" src/kirsch.kbitx
-bdfresize -f 2 "out/kirsch$v.bdf" >"out/kirsch_2x$v.bdf"
+bnp() {
+	java -jar deps/BitsNPicas.jar convertbitmap -f "$3" -o out/"$2.$3" "$1"
+}
 
-# kbitx -> otb
-java -jar deps/BitsNPicas.jar convertbitmap -f otb -o "out/kirsch$v.otb" src/kirsch.kbitx
-bdfresize -f 2 "out/kirsch$v.otb" >"out/kirsch_2x$v.otb"
+ff() {
+	s=$(
+		cat <<-END
+			f = open(argv[1])
+			f.encoding = "UnicodeFull"
+			f.fullname = argv[3]
+			f.fontname = argv[3]
+			f.generate(argv[2], "otb")
+			f.generate(argv[2] + "dfont", "sbit")
+		END
+	)
+	deps/fontforge -c "$s" "$PWD"/out/"$1".bdf "$PWD"/out/"$1". "$1"
+}
 
-# kbitx -> ttf
-java -jar deps/BitsNPicas.jar convertbitmap -f ttf -o "out/kirsch$v.ttf" src/kirsch.kbitx
+bnp src/kirsch.kbitx kirsch ttf
+bnp src/kirsch.kbitx kirsch bdf
+sed -i -e '/^FONT/s/-[pc]-/-M-/i' -e '/^FONT/s/-80-/-50-/' out/kirsch.bdf
+ff kirsch
 
-rm -f out/*.afm
-zip -r "out/kirsch$v.zip" out/*
+bdfresize -f 2 out/kirsch.bdf >out/kirsch2x.bdf
+sed -i -e 's/^iso.*-FONT/FONT/g' -e 's/kirsch/kirsch2x/g' out/kirsch2x.bdf
+ff kirsch2x
+
+rm -f out/*-*.bdf
+
+zip -r "out/kirsch_$v.zip" out/*
