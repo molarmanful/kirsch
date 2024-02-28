@@ -50,4 +50,3 @@ ff kirsch2x
 rm -f out/*-*.bdf
 
 zip -r "out/kirsch_$v.zip" out/*
-cp out/kirsch.woff2 web/static
