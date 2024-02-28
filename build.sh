@@ -39,6 +39,7 @@ ff() {
 }
 
 bnp src/kirsch.kbitx kirsch ttf
+deps/fontforge -c 'open(argv[1]).generate(argv[2], "woff2")' "$PWD"/out/kirsch.ttf "$PWD"/out/kirsch.woff2
 bnp src/kirsch.kbitx kirsch bdf
 sed -i -e '/^FONT/s/-[pc]-/-M-/i' -e '/^FONT/s/-80-/-50-/' out/kirsch.bdf
 ff kirsch
@@ -50,4 +51,4 @@ ff kirsch2x
 rm -f out/*-*.bdf
 
 zip -r "out/kirsch_$v.zip" out/*
-cp out/kirsch.ttf web/static
+cp out/kirsch.woff2 web/static

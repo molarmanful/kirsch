@@ -13,7 +13,7 @@
     font-weight: 500;
     src:
       local(''),
-      url('/fonts/kirsch.ttf') format('truetype');
+      url('/kirsch.woff2') format('woff2');
   }
 
   :root {
