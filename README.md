@@ -23,11 +23,14 @@
 
 1. _(German)_ cherry.
 
+1. _(Russell A. Kirsch, 1929 - 2020)_ American engineer recognized as the
+   developer of the first digital image scanner and the inventor of the pixel.
+
 1. A monospace bitmap font with a 6x16 bounding box (5px avg width, 4px
    descent, 12px ascent, 5px x-height, 9px cap height).
 
-   Some glyphs come from [Cozette](https://github.com/slavfox/Cozette),
-   often with modifications to adhere to kirsch's design.
+   Some glyphs come from [Cozette](https://github.com/slavfox/Cozette), often
+   with modifications to adhere to kirsch's design.
 
 ## Gallery
 
