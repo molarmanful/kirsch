@@ -12,7 +12,7 @@ while getopts ":v:" o; do
 done
 
 rm -rf out
-mkdir -p deps out
+mkdir -p deps out img
 
 [ ! -f deps/BitsNPicas.jar ] && wget -O deps/BitsNPicas.jar https://github.com/kreativekorp/bitsnpicas/releases/latest/download/BitsNPicas.jar
 [ ! -f deps/fontforge ] && wget -O deps/fontforge https://github.com/fontforge/fontforge/releases/download/20230101/FontForge-2023-01-01-a1dad3e-x86_64.AppImage && chmod +x deps/fontforge
@@ -50,3 +50,9 @@ ff kirsch2x
 rm -f out/*-*.bdf
 
 zip -r "out/kirsch_$v.zip" out/*
+
+for f in txt/*; do
+	g="${f##*/}"
+	g="${g%.*}"
+	hb-view --text-file="$f" --font-size=16 -o img/"$g".png out/kirsch.ttf
+done

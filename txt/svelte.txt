@@ -1,0 +1,32 @@
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                              SVELTE                                              ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════════╣
+║                                                                                                  ║
+║        1 │ <main                                                                                 ║
+║        2 │   class="{loaded                                                                      ║
+║        3 │     ? 'opacity-100'                                                                   ║
+║        4 │     : 'opacity-0'} transition-opacity-400 screen flex justify-center items-center"    ║
+║        5 │ >                                                                                     ║
+║        6 │   <div                                                                                ║
+║        7 │     style:max-width="{opts.size * opts.scale}px"                                      ║
+║        8 │     class="h-full flex-(~ col) items-center"                                          ║
+║        9 │   >                                                                                   ║
+║       10 │     <div class="flex-(~ 1) flex-col mb-4">                                            ║
+║       11 │       <span class="mt-auto">                                                          ║
+║       12 │         {hbar + '·'.repeat(opts.health - hbar.length)}                                ║
+║       13 │       </span>                                                                         ║
+║       14 │     </div>                                                                            ║
+║       15 │     <canvas                                                                           ║
+║       16 │       bind:this={canvas}                                                              ║
+║       17 │       class="border-(1 black) image-render-pixel {cursor}"                            ║
+║       18 │       height={opts.size}                                                              ║
+║       19 │       width={opts.size}                                                               ║
+║       20 │       on:mousedown={() => (clk = true)}                                               ║
+║       21 │     />                                                                                ║
+║       22 │     <div class="mt-4 mb-16 hyphens-auto flex-1">                                      ║
+║       23 │       <p class="ws-pre-wrap">{interp}</p>                                             ║
+║       24 │     </div>                                                                            ║
+║       25 │   </div>                                                                              ║
+║       26 │ </main>                                                                               ║
+║                                                                                                  ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝

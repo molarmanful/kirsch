@@ -1,0 +1,28 @@
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                              SCALA                                               ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════════╣
+║                                                                                                  ║
+║        1 │ package sclin                                                                         ║
+║        2 │                                                                                       ║
+║        3 │ import ANY.*                                                                          ║
+║        4 │                                                                                       ║
+║        5 │ case class Lambda(                                                                    ║
+║        6 │     xs: LazyList[ANY] = LazyList(),                                                   ║
+║        7 │     ys: LazyList[ANY] = LazyList(),                                                   ║
+║        8 │     n: Int = 1                                                                        ║
+║        9 │ ):                                                                                    ║
+║       10 │                                                                                       ║
+║       11 │   def loop: Lambda =                                                                  ║
+║       12 │     if n <= 0 then this                                                               ║
+║       13 │     else                                                                              ║
+║       14 │       xs match                                                                        ║
+║       15 │         case LazyList() => this                                                       ║
+║       16 │         case c #:: cs =>                                                              ║
+║       17 │           val d = c match                                                             ║
+║       18 │             case CMD(x) =>                                                            ║
+║       19 │               val m = x.groupBy(c => c).view.mapValues(_.length)                      ║
+║       20 │               m.get('(').getOrElse(0) - m.get(')').getOrElse(0)                       ║
+║       21 │             case _ => 0                                                               ║
+║       22 │           Lambda(cs, ys #::: LazyList(c), n + d).loop                                 ║
+║                                                                                                  ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝

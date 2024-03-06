@@ -1,0 +1,47 @@
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                              GOLANG                                              ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════════╣
+║                                                                                                  ║
+║        1 │ // Generates bot weights based on recent msgs.                                        ║
+║        2 │ func (ST *State) CalcWs(lms []*Msg) ([]*Bot, string) {                                ║
+║        3 │                                                                                       ║
+║        4 │   // get last user + their weights                                                    ║
+║        5 │   ws := make(map[string]int)                                                          ║
+║        6 │   lU := ""                                                                            ║
+║        7 │   for _, m := range lms {                                                             ║
+║        8 │     if v, ok := ST.Wbots[m.USER.ID]; ok {                                             ║
+║        9 │       ws = v                                                                          ║
+║       10 │       lU = m.USER.ID                                                                  ║
+║       11 │     }                                                                                 ║
+║       12 │   }                                                                                   ║
+║       13 │   if ws == nil {                                                                      ║
+║       14 │     log.Warn().Msg("no usr msgs?")                                                    ║
+║       15 │     return ST.Bots, lU                                                                ║
+║       16 │   }                                                                                   ║
+║       17 │                                                                                       ║
+║       18 │   for i, m := range lms {                                                             ║
+║       19 │     // get mentioned bots                                                             ║
+║       20 │     // may gen false positives, but that is fine                                      ║
+║       21 │     cn := ST.CM.ClosestN(strings.ToLower(removeAccents(m.BODY)), 5)                   ║
+║       22 │     for j, id := range cn {                                                           ║
+║       23 │       ws[id] += max(0, len(ST.Bots)/2+10-i*i-j*j)                                     ║
+║       24 │     }                                                                                 ║
+║       25 │                                                                                       ║
+║       26 │     // add weight to bot w/ recent msg                                                ║
+║       27 │     if w, ok := ws[m.USER.ID]; ok {                                                   ║
+║       28 │       w += len(ST.Bots) / 2                                                           ║
+║       29 │     }                                                                                 ║
+║       30 │   }                                                                                   ║
+║       31 │                                                                                       ║
+║       32 │   // replicate bots into weighted list                                                ║
+║       33 │   bs := make([]*Bot, 0, len(ST.Bots)*2)                                               ║
+║       34 │   for id, n := range ws {                                                             ║
+║       35 │     for j := 0; j < n; j++ {                                                          ║
+║       36 │       bs = append(bs, ST.BotMap[id])                                                  ║
+║       37 │     }                                                                                 ║
+║       38 │   }                                                                                   ║
+║       39 │                                                                                       ║
+║       40 │   return bs, lU                                                                       ║
+║       41 │ }                                                                                     ║
+║                                                                                                  ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
