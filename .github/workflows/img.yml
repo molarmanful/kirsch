@@ -2,7 +2,7 @@
 name: img
 on:
   push:
-    branches: [main]
+    branches: [master]
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
