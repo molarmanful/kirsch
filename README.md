@@ -36,18 +36,7 @@
 
 <div align="center">
 
-![programming font test pattern](./img/prog.png)
-![english](./img/eng.png)
-![multilingual](./img/multi.png)
-![scala](./img/scala.png)
-![clojure](./img/clojure.png)
-![golang](./img/go.png)
-![svelte](./img/svelte.png)
-![apl](./img/apl.png)
-![pretty plain text](./img/pretty.png)
-![math/science](./img/math.png)
-![box drawings](./img/box.png)
-![braille](./img/braille.png)
+![kirsch sample](./img/sample.png)
 
 </div>
 

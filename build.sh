@@ -19,6 +19,7 @@ mkdir -p deps out img
 
 cp LICENSE out
 cp README.md out
+true >test.txt
 
 bnp() {
 	java -jar deps/BitsNPicas.jar convertbitmap -f "$3" -o out/"$2.$3" "$1"
@@ -38,6 +39,10 @@ ff() {
 	deps/fontforge -c "$s" "$PWD"/out/"$1".bdf "$PWD"/out/"$1". "$1"
 }
 
+hb() {
+	hb-view --text-file="$1" --font-size=16 -o img/"$2".png out/kirsch.ttf
+}
+
 bnp src/kirsch.kbitx kirsch ttf
 bnp src/kirsch.kbitx kirsch bdf
 sed -i -e '/^FONT/s/-[pc]-/-M-/i' -e '/^FONT/s/-80-/-50-/' out/kirsch.bdf
@@ -51,8 +56,14 @@ rm -f out/*-*.bdf
 
 zip -r "out/kirsch_$v.zip" out/*
 
+for f in prog eng multi scala clojure go svelte apl pretty math box; do
+	cat txt/"$f".txt >>test.txt
+done
+
+hb test.txt sample
+
 for f in txt/*; do
 	g="${f##*/}"
 	g="${g%.*}"
-	hb-view --text-file="$f" --font-size=16 -o img/"$g".png out/kirsch.ttf
+	hb "$f" "$g"
 done
