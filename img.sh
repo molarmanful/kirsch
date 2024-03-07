@@ -1,8 +1,10 @@
 #!/bin/bash -e
 
 rm -rf out
-mkdir -p out img
+mkdir -p deps out img
 true >test.txt
+
+[ ! -f deps/BitsNPicas.jar ] && wget -O deps/BitsNPicas.jar https://github.com/kreativekorp/bitsnpicas/releases/latest/download/BitsNPicas.jar
 
 bnp() {
 	java -jar deps/BitsNPicas.jar convertbitmap -f "$3" -o out/"$2.$3" "$1"
