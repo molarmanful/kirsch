@@ -25,8 +25,4 @@ jobs:
       - name: build
         run: ./img.sh
       - name: push
-        run: |-
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git commit -a -m "img gen"
-          git push
+        uses: stefanzweifel/git-auto-commit-action@v5
