@@ -11,7 +11,7 @@ bnp() {
 }
 
 hb() {
-	hb-view --text-file="$1" --font-size=16 -o img/"$2".png out/kirsch.ttf
+	hb-view --text-file="$1" --font-size=16 -o img/"$2".png --foreground=#FFC6D9 --background=#1F0318 out/kirsch.ttf
 }
 
 bnp src/kirsch.kbitx kirsch ttf
