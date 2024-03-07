@@ -27,7 +27,8 @@
    developer of the first digital image scanner and the inventor of the pixel.
 
 1. A monospace bitmap font with a 6x16 bounding box (5px avg width, 4px
-   descent, 12px ascent, 5px x-height, 9px cap height).
+   descent, 12px ascent, 5px x-height, 9px cap height). It draws from a variety
+   of letterforms and motifs to create a distinct, slightly "handwritten" feel.
 
    Some glyphs come from [Cozette](https://github.com/slavfox/Cozette), often
    with modifications to adhere to kirsch's design.
