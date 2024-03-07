@@ -1,14 +1,16 @@
 ---
-name: pub
+name: img
 on:
   push:
-    tags: ['*']
+    branches: [main]
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 jobs:
   pub:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -19,13 +21,12 @@ jobs:
           distribution: temurin
           java-version: 21
       - name: deps
-        run: sudo apt install fuse bdfresize
+        run: sudo apt install libharfbuzz-bin
       - name: build
-        env:
-          REF: ${{ github.ref_name }}
-        run: ./build.sh -v "$REF"
-      - name: Release
-        uses: svenstaro/upload-release-action@2.7.0
-        with:
-          file: out/*
-          file_glob: true
+        run: ./img.sh
+      - name: push
+        run: |-
+          git config --global user.name "img ci"
+          git config --global user.email "username@users.noreply.github.com"
+          git commit -a -m "img gen"
+          git push
