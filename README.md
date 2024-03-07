@@ -28,7 +28,7 @@
 
 1. A monospace bitmap font with a 6x16 bounding box (5px avg width, 4px
    descent, 12px ascent, 5px x-height, 9px cap height). It draws from a variety
-   of letterforms and motifs to create a distinct, slightly "handwritten" feel.
+   of letterforms and motifs to create a distinct, humanist feel.
 
    Some glyphs come from [Cozette](https://github.com/slavfox/Cozette), often
    with modifications to adhere to kirsch's design.
@@ -77,9 +77,9 @@ formats from BDF. `build.sh` also downloads a Bits'n'Picas binary at `deps/`.
 If you wish, you can use this binary (instead of or alongside FontForge) to
 view glyphs and build desired font formats not found on the Releases page.
 
-HarfBuzz (or more specifically, `hb-view`) is necessary if you wish to generate
-the images found in `img/`, but is otherwise unused in the building of the
-final font files.
+HarfBuzz (or more specifically, `hb-view`) is necessary if you wish to use
+`img.sh` to generate the images found in `img/`, but is otherwise unused in the
+building of the final font files.
 
 ## Design Notes
 
