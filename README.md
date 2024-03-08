@@ -1,6 +1,6 @@
 <div align="center">
 
-![kirsch](./img/header.png?)
+![kirsch](./img/header.png)
 
 </div>
 
@@ -37,7 +37,7 @@
 
 <div align="center">
 
-![kirsch sample](./img/sample.png?)
+![kirsch sample](./img/sample.png)
 
 </div>
 
