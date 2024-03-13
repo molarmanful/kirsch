@@ -84,7 +84,18 @@ building of the final font files.
 
 ## Design Notes
 
+Unlike my previous font [eldur](https://github.com/molarmanful/eldur), which
+had a mere 4px avg. char width to work with, kirsch has a 5px avg. char width.
+That 1px of extra width affords a surprising amount of leeway for the design.
+Far more glyphs fit comfortably into 5px width - e.g. "m" and "w" - meaning that
+those glyphs won't break kerning and intrude on the spaces of neighboring
+glyphs. Glyphs that don't fit into 5px width can now work with 7px width, which
+maintains balance and legibility without affecting kerning too negatively.
+
 ## TODO
+
+- More Unicode support
+- Ligatures
 
 ## Contributing
 
