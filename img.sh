@@ -17,10 +17,10 @@ hb() {
 bnp src/kirsch.kbitx kirsch ttf
 
 for f in prog eng multi scala clojure go svelte apl engalt pretty math box braille; do
-	cat txt/"$f".txt >>test.txt
+	cat txt/"$f".txt >>tmp_sample.txt
 done
 
-hb test.txt sample
+hb tmp_sample.txt sample
 
 for f in txt/*; do
 	g="${f##*/}"

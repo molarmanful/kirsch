@@ -1,3 +1,4 @@
 deps/
 out/
 test.*
+tmp*
