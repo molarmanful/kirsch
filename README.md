@@ -37,15 +37,22 @@
 ## Gallery
 
 <details>
-    <summary>Supported characters</summary>
+<summary>Supported Characters</summary>
+<div align="center">
+
 ![kirsch chars](./img/chars.png)
+
+</div>
 </details>
 
+<details open>
+<summary>Samples</summary>
 <div align="center">
 
 ![kirsch sample](./img/sample.png)
 
 </div>
+</details>
 
 ## Installation
 
