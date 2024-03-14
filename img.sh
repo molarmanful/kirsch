@@ -16,7 +16,7 @@ hb() {
 
 bnp src/kirsch.kbitx kirsch ttf
 
-for f in prog eng engalt multi scala clojure go svelte apl pretty math box braille; do
+for f in prog eng multi scala clojure go svelte apl engalt pretty math box braille; do
 	cat txt/"$f".txt >>test.txt
 done
 
