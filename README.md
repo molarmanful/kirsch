@@ -38,7 +38,7 @@
 
 <details>
     <summary>Supported characters</summary>
-    ![kirsch chars](./img/chars.png)
+![kirsch chars](./img/chars.png)
 </details>
 
 <div align="center">
