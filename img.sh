@@ -2,7 +2,6 @@
 
 rm -rf out
 mkdir -p deps out img
-true >test.txt
 
 [ ! -f deps/BitsNPicas.jar ] && wget -O deps/BitsNPicas.jar https://github.com/kreativekorp/bitsnpicas/releases/latest/download/BitsNPicas.jar
 
@@ -16,11 +15,28 @@ hb() {
 
 bnp src/kirsch.kbitx kirsch ttf
 
+read -r -a list <<<"$(fc-query --format='%{charset}\n' out/kirsch.ttf)"
+
+for range in "${list[@]}"; do
+	IFS=- read -r start end <<<"$range"
+	if [ "$end" ]; then
+		start=$((16#$start))
+		end=$((16#$end))
+		for ((i = start; i <= end; i++)); do
+			printf -v char '\\U%x' "$i"
+			printf '%b ' "$char"
+		done
+	else
+		printf '%b ' "\\U$start"
+	fi
+done | perl -C -pe 's/\p{M}/./g' | grep -oP '.{1,100}' >tmp_chars.txt
+
 for f in prog eng multi scala clojure go svelte apl engalt pretty math box braille; do
-	cat txt/"$f".txt >>tmp_sample.txt
-done
+	cat txt/"$f".txt
+done >tmp_sample.txt
 
 hb tmp_sample.txt sample
+hb tmp_chars.txt chars
 
 for f in txt/*; do
 	g="${f##*/}"
