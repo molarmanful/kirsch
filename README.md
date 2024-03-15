@@ -37,7 +37,7 @@
 ## Gallery
 
 <details>
-<summary>Supported Characters</summary>
+<summary>Supported Glyphs</summary>
 <div align="center">
 
 ![kirsch chars](./img/chars.png)
