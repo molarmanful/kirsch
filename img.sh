@@ -24,12 +24,12 @@ for range in "${list[@]}"; do
 		end=$((16#$end))
 		for ((i = start; i <= end; i++)); do
 			printf -v char '\\U%x' "$i"
-			printf '%b ' "$char"
+			printf '%b' "$char"
 		done
 	else
-		printf '%b ' "\\U$start"
+		printf '%b' "\\U$start"
 	fi
-done | perl -C -pe 's/\p{M}/./g' | grep -oP '.{1,100}' >tmp_chars.txt
+done | perl -C -pe 's/\p{M}//g; s/(.)/$1 /g' | grep -oP '.{1,100}' >tmp_chars.txt
 
 for f in prog eng multi scala clojure go svelte apl engalt pretty math box braille; do
 	cat txt/"$f".txt
