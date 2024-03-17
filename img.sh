@@ -29,7 +29,7 @@ for range in "${list[@]}"; do
 	else
 		printf '%b' "\\U$start"
 	fi
-done | perl -C -pe 's/\p{M}//g; s/(.)/$1 /g' | grep -oP '.{1,100}' >tmp_chars.txt
+done | perl -C -pe 's/\p{M}//g; s/(.)/$1 /g; $_=join("\n", /.{1,100}/g)' >tmp_chars.txt
 
 for f in prog eng multi scala clojure go svelte apl engalt pretty math box braille; do
 	cat txt/"$f".txt
