@@ -12,7 +12,6 @@
 - [Installation](#installation)
   - [Manually Building](#manually-building)
 - [Design Notes](#design-notes)
-  - [Flourishes](#flourishes)
 - [TODO](#todo)
 - [Contributing](#contributing)
 - [Credits](#credits)
@@ -106,11 +105,7 @@ glyphs. Glyphs that don't fit into 5px width can now work with 7px width, which
 maintains balance and legibility without affecting kerning too negatively.
 
 <details>
-<summary>
-
-### Flourishes
-
-</summary>
+<summary>Flourishes</summary>
 
 <img alt="rogue fijian xylophone" src="./img/design-script.png" align="left">
 
