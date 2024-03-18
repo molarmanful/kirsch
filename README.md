@@ -105,7 +105,12 @@ those glyphs won't break kerning and intrude on the spaces of neighboring
 glyphs. Glyphs that don't fit into 5px width can now work with 7px width, which
 maintains balance and legibility without affecting kerning too negatively.
 
+<details>
+<summary>
+
 ### Flourishes
+
+</summary>
 
 <img alt="rogue fijian xylophone" src="./img/design-script.png" align="left">
 
@@ -114,7 +119,7 @@ serve a functional purpose. Without the flourishes, "i" would take up 1px of
 width, leaving 4px of awkward space. 2px flourishes on each side of the "i"
 give it a 5px width, thereby fixing the kerning issue in a stylish way.
 
-<br clear="both"/>
+</details>
 
 ## TODO
 
