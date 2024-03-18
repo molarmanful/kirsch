@@ -37,7 +37,7 @@
 ## Gallery
 
 <details>
-<summary>Supported Glyphs</summary>
+<summary><strong>Supported Glyphs</strong></summary>
 <div align="center">
 
 ![kirsch chars](./img/chars.png)
@@ -46,7 +46,7 @@
 </details>
 
 <details open>
-<summary>Samples</summary>
+<summary><strong>Samples</strong></summary>
 <div align="center">
 
 ![kirsch sample](./img/sample.png)
@@ -107,12 +107,25 @@ maintains balance and legibility without affecting kerning too negatively.
 <details>
 <summary><strong>Flourishes</strong></summary>
 
-<img alt="rogue fijian xylophone" src="./img/design-script.png" align="left">
+<img alt="rogue fijian xylophone" src="./img/design-flourishes.png" align="left">
 
 The flourishes - e.g. in "i" or "f" - are a stylistic choice, but they also
 serve a functional purpose. Without the flourishes, "i" would take up 1px of
 width, leaving 4px of awkward space. 2px flourishes on each side of the "i"
 give it a 5px width, thereby fixing the kerning issue in a stylish way.
+
+In "l"'s case, the script-style flourishes further distinguish it from other
+vertical characters like `1I|`.
+
+<br clear="both">
+</details>
+
+<details>
+<summary><strong>Gaps</strong></summary>
+
+<img alt="rogue fijian xylophone" src="./img/design-gaps.png" align="right">
+
+TODO
 
 <br clear="both">
 </details>
