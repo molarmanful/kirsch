@@ -12,6 +12,7 @@
 - [Installation](#installation)
   - [Manually Building](#manually-building)
 - [Design Notes](#design-notes)
+  - [Flourishes](#flourishes)
 - [TODO](#todo)
 - [Contributing](#contributing)
 - [Credits](#credits)
@@ -104,6 +105,8 @@ those glyphs won't break kerning and intrude on the spaces of neighboring
 glyphs. Glyphs that don't fit into 5px width can now work with 7px width, which
 maintains balance and legibility without affecting kerning too negatively.
 
+### Flourishes
+
 <img alt="rogue fijian xylophone" src="./img/design-script.png" align="left">
 
 The flourishes - e.g. in "i" or "f" - are a stylistic choice, but they also
@@ -111,7 +114,7 @@ serve a functional purpose. Without the flourishes, "i" would take up 1px of
 width, leaving 4px of awkward space. 2px flourishes on each side of the "i"
 give it a 5px width, thereby fixing the kerning issue in a stylish way.
 
-______________________________________________________________________
+<br clear="both"/>
 
 ## TODO
 
