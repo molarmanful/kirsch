@@ -112,7 +112,7 @@ maintains balance and legibility without affecting kerning too negatively.
 The flourishes - e.g. in "i" or "f" - are a stylistic choice, but they also
 serve a functional purpose. Without the flourishes, "i" would take up 1px of
 width, leaving 4px of awkward space. 2px flourishes on each side of the "i"
-give it a 5px width, thereby fixing the kerning issue in a stylish way.
+give it a 5px width, thereby addressing the kerning issue in a stylish way.
 
 In "l"'s case, the script-style flourishes further distinguish it from other
 vertical characters like `1I|`.
@@ -123,9 +123,12 @@ vertical characters like `1I|`.
 <details>
 <summary><strong>Gaps</strong></summary>
 
-<img alt="rogue fijian xylophone" src="./img/design-gaps.png" align="right">
+<img alt="bad queen peg 69" src="./img/design-gaps.png" align="right">
 
-TODO
+One of kirsch's distinctive features is the presence of a gap at the bowls of
+the letters. Filling in the gap would make the letters either too square or too
+bunched-up, while leaving the gap open declutters the letterforms. The gaps
+also evoke script-style stroke endings.
 
 <br clear="both">
 </details>
