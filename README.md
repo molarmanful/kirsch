@@ -107,7 +107,7 @@ maintains balance and legibility without affecting kerning too negatively.
 <details>
 <summary><strong>Flourishes</strong></summary>
 
-<img alt="rogue fijian xylophone" src="./img/design-flourishes.png" align="left">
+![rogue fijian xylophone](./img/design-flourishes.png)
 
 The flourishes - e.g. in "i" or "f" - are a stylistic choice, but they also
 serve a functional purpose. Without the flourishes, "i" would take up 1px of
@@ -123,7 +123,7 @@ vertical characters like `1I|`.
 <details>
 <summary><strong>Gaps</strong></summary>
 
-<img alt="bad queen peg 69" src="./img/design-gaps.png" align="right">
+![bad queen peg 69](./img/design-gaps.png)
 
 One of kirsch's distinctive features is the presence of a gap at the bowls of
 the letters. Filling in the gap would make the letters either too square or too
