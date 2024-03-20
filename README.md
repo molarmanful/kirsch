@@ -117,7 +117,6 @@ give it a 5px width, thereby addressing the kerning issue in a stylish way.
 In "l"'s case, the script-style flourishes further distinguish it from other
 vertical characters like `1I|`.
 
-<br clear="both">
 </details>
 
 <details>
@@ -130,7 +129,6 @@ the letters. Filling in the gap would make the letters either too square or too
 bunched-up, while leaving the gap open declutters the letterforms. The gaps
 also evoke script-style stroke endings.
 
-<br clear="both">
 </details>
 
 ## TODO
