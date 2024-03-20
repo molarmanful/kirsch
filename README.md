@@ -12,6 +12,8 @@
 - [Installation](#installation)
   - [Manually Building](#manually-building)
 - [Design Notes](#design-notes)
+  - [Flourishes](#flourishes)
+  - [Gaps](#gaps)
 - [TODO](#todo)
 - [Contributing](#contributing)
 - [Credits](#credits)
@@ -104,8 +106,7 @@ those glyphs won't break kerning and intrude on the spaces of neighboring
 glyphs. Glyphs that don't fit into 5px width can now work with 7px width, which
 maintains balance and legibility without affecting kerning too negatively.
 
-<details>
-<summary><strong>Flourishes</strong></summary>
+### Flourishes
 
 ![rogue fijian xylophone](./img/design-flourishes.png)
 
@@ -117,10 +118,7 @@ give it a 5px width, thereby addressing the kerning issue in a stylish way.
 In "l"'s case, the script-style flourishes further distinguish it from other
 vertical characters like `1I|`.
 
-</details>
-
-<details>
-<summary><strong>Gaps</strong></summary>
+### Gaps
 
 ![bad queen peg 69](./img/design-gaps.png)
 
@@ -128,8 +126,6 @@ One of kirsch's distinctive features is the presence of a gap at the bowls of
 the letters. Filling in the gap would make the letters either too square or too
 bunched-up, while leaving the gap open declutters the letterforms. The gaps
 also evoke script-style stroke endings.
-
-</details>
 
 ## TODO
 
