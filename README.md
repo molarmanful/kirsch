@@ -82,9 +82,8 @@ Requirements:
 
 Optional:
 
-- [HarfBuzz Utilities](https://harfbuzz.github.io/utilities.html) (e.g.
-  `apt install libharfbuzz-bin`)
-- [bdfresize](https://github.com/ntwk/bdfresize) (e.g. `apt install bdfresize`)
+- hb-view (e.g. `apt install libharfbuzz-bin`)
+- bdfresize (e.g. `apt install bdfresize`)
 - bdftopcf (e.g. `apt install xfonts-utils`)
 
 `git clone` and run `build.sh`. Font files output to `out/`.
@@ -94,7 +93,7 @@ formats from BDF. `build.sh` also downloads a Bits'n'Picas binary at `deps/`.
 If you wish, you can use this binary (instead of or alongside FontForge) to
 view glyphs and build desired font formats not found on the Releases page.
 
-HarfBuzz (or more specifically, `hb-view`) is necessary if you wish to use
+`hb-view` is necessary if you wish to use
 `img.sh` to generate the images found in `img/`, but is otherwise unused in the
 building of the final font files. `bdfresize` is for generating HiDPI fonts.
 `bdftopcf` is for generating PCF fonts.
