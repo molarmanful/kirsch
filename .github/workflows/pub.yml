@@ -19,7 +19,7 @@ jobs:
           distribution: temurin
           java-version: 21
       - name: deps
-        run: sudo apt install fuse bdfresize xfont-utils
+        run: sudo apt install fuse bdfresize xfonts-utils
       - name: build
         env:
           REF: ${{ github.ref_name }}
