@@ -39,9 +39,11 @@ ff() {
 }
 
 pcf() {
-	perl scripts/ffff.pl <out/"$1".bdf >tmp.bdf
-	sed -i "s/^CHARS .*/CHARS $(grep -c '^ENDCHAR' tmp.bdf)/" tmp.bdf
-	bdftopcf -o out/"$1".pcf tmp.bdf
+	if command -v bdftopcf &>/dev/null; then
+		perl scripts/ffff.pl <out/"$1".bdf >tmp.bdf
+		sed -i "s/^CHARS .*/CHARS $(grep -c '^ENDCHAR' tmp.bdf)/" tmp.bdf
+		bdftopcf -o out/"$1".pcf tmp.bdf
+	fi
 }
 
 bnp src/kirsch.kbitx kirsch ttf
@@ -50,10 +52,12 @@ sed -i -e '/^FONT/s/-[pc]-/-M-/i' -e '/^FONT/s/-80-/-50-/' out/kirsch.bdf
 ff kirsch
 pcf kirsch
 
-bdfresize -f 2 out/kirsch.bdf >out/kirsch2x.bdf
-sed -i -e 's/^iso.*-FONT/FONT/g' -e 's/kirsch/kirsch2x/g' out/kirsch2x.bdf
-ff kirsch2x
-pcf kirsch2x
+if command -v bdfresize &>/dev/null; then
+	bdfresize -f 2 out/kirsch.bdf >out/kirsch2x.bdf
+	sed -i -e 's/^iso.*-FONT/FONT/g' -e 's/kirsch/kirsch2x/g' out/kirsch2x.bdf
+	ff kirsch2x
+	pcf kirsch2x
+fi
 
 rm -f out/*-*.bdf
 

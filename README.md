@@ -59,8 +59,9 @@
 ## Installation
 
 Download from [Releases](https://github.com/molarmanful/kirsch/releases).
-Included are bitmap formats - OTB, BDF, DFONT (for Mac users) - as well as TTF.
-2x versions are available for HiDPI screens.
+Included are bitmap formats - OTB, BDF, PCF, DFONT (for Mac users) - as well as TTF.
+2x versions are available for HiDPI screens. Note that PCF doesn't contain
+glyphs past U+FFFF.
 
 For the crispiest viewing experience, try to use the bitmap formats when
 possible. If bitmap fonts are not supported on your platform (e.g. Windows,
@@ -77,13 +78,14 @@ VSCode), then use the TTF at font sizes that are multiples of 16px.
 Requirements:
 
 - Java (for [Bits'n'Picas](https://github.com/kreativekorp/bitsnpicas))
-- [bdfresize](https://github.com/ntwk/bdfresize) (e.g. `apt install bdfresize`)
 - FUSE (e.g. `apt install fuse`)
 
 Optional:
 
 - [HarfBuzz Utilities](https://harfbuzz.github.io/utilities.html) (e.g.
   `apt install libharfbuzz-bin`)
+- [bdfresize](https://github.com/ntwk/bdfresize) (e.g. `apt install bdfresize`)
+- bdftopcf (e.g. `apt install xfonts-utils`)
 
 `git clone` and run `build.sh`. Font files output to `out/`.
 
@@ -94,7 +96,8 @@ view glyphs and build desired font formats not found on the Releases page.
 
 HarfBuzz (or more specifically, `hb-view`) is necessary if you wish to use
 `img.sh` to generate the images found in `img/`, but is otherwise unused in the
-building of the final font files.
+building of the final font files. `bdfresize` is for generating HiDPI fonts.
+`bdftopcf` is for generating PCF fonts.
 
 ## Design Notes
 
