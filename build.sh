@@ -26,7 +26,7 @@ bnp() {
 
 ff() {
 	s=$(
-		cat <<-END
+		cat <<-'END'
 			f = open(argv[1])
 			f.encoding = "UnicodeFull"
 			f.fullname = argv[3]
@@ -38,14 +38,22 @@ ff() {
 	deps/fontforge -c "$s" "$PWD"/out/"$1".bdf "$PWD"/out/"$1". "$1"
 }
 
+pcf() {
+	perl scripts/ffff.pl <out/"$1".bdf >tmp.bdf
+	sed -i "s/^CHARS .*/CHARS $(grep -c '^ENDCHAR' tmp.bdf)/" tmp.bdf
+	bdftopcf -o out/"$1".pcf tmp.bdf
+}
+
 bnp src/kirsch.kbitx kirsch ttf
 bnp src/kirsch.kbitx kirsch bdf
 sed -i -e '/^FONT/s/-[pc]-/-M-/i' -e '/^FONT/s/-80-/-50-/' out/kirsch.bdf
 ff kirsch
+pcf kirsch
 
 bdfresize -f 2 out/kirsch.bdf >out/kirsch2x.bdf
 sed -i -e 's/^iso.*-FONT/FONT/g' -e 's/kirsch/kirsch2x/g' out/kirsch2x.bdf
 ff kirsch2x
+pcf kirsch2x
 
 rm -f out/*-*.bdf
 
