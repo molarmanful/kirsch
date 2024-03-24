@@ -53,10 +53,13 @@ ff kirsch
 pcf kirsch
 
 if command -v bdfresize &>/dev/null; then
-	bdfresize -f 2 out/kirsch.bdf >out/kirsch2x.bdf
-	sed -i -e 's/^iso.*-FONT/FONT/g' -e 's/kirsch/kirsch2x/g' out/kirsch2x.bdf
-	ff kirsch2x
-	pcf kirsch2x
+	for n in 2 3; do
+		name=kirsch${n}x
+		bdfresize -f 2 out/kirsch.bdf >out/"$name".bdf
+		sed -i -e 's/^iso.*-FONT/FONT/g' -e "s/kirsch/$name/g" out/"$name".bdf
+		ff "$name"
+		pcf "$name"
+	done
 fi
 
 rm -f out/*-*.bdf
