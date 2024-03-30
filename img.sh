@@ -35,7 +35,10 @@ for f in prog eng multi scala clojure go svelte apl engalt pretty math box brail
 	cat txt/"$f".txt
 done >tmp_sample.txt
 
+cat txt/header.txt tmp_sample.txt >tmp_all.txt
+
 hb tmp_sample.txt sample
+hb tmp_all.txt all
 hb tmp_chars.txt chars
 
 for f in txt/*; do
