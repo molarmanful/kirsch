@@ -73,6 +73,10 @@ VSCode), then use the TTF at font sizes that are multiples of 16px.
 >
 > e.g. 13px on a 96dpi screen is `16px * 72 / 96dpi = 12pt`.
 
+Patched Nerd Fonts are available. The "Mono" variant uses smaller glyphs
+(single- instead of double-width) and works for terminals that can't mix
+widths.
+
 ### Manually Building
 
 Requirements:
@@ -88,10 +92,13 @@ Optional:
 
 `git clone` and run `build.sh`. Font files output to `out/`.
 
-`build.sh` downloads FontForge as an AppImage at `deps/` for generating bitmap
-formats from BDF. `build.sh` also downloads a Bits'n'Picas binary at `deps/`.
-If you wish, you can use this binary (instead of or alongside FontForge) to
-view glyphs and build desired font formats not found on the Releases page.
+`build.sh` downloads into `deps/`:
+
+- A FontForge AppImage for generating bitmap formats from BDF.
+- A Bits'n'Picas binary. If you wish, you can use this binary
+  (instead of or alongside FontForge) to view glyphs and build desired font
+  formats not found on the Releases page.
+- A Nerd Fonts Patcher, which requires `-n` to activate.
 
 `hb-view` is necessary if you wish to use
 `img.sh` to generate the images found in `img/`, but is otherwise unused in the

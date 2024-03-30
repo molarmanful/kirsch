@@ -1,11 +1,14 @@
 #!/bin/bash -e
 
-while getopts ":v:" o; do
+while getopts "v:n" o; do
 	case $o in
 	v)
 		if [ "$OPTARG" != "" ]; then
 			v=$OPTARG
 		fi
+		;;
+	n)
+		n=1
 		;;
 	*) ;;
 	esac
@@ -16,6 +19,7 @@ mkdir -p deps out
 
 [ ! -f deps/BitsNPicas.jar ] && wget -O deps/BitsNPicas.jar https://github.com/kreativekorp/bitsnpicas/releases/latest/download/BitsNPicas.jar
 [ ! -f deps/fontforge ] && wget -O deps/fontforge https://github.com/fontforge/fontforge/releases/download/20230101/FontForge-2023-01-01-a1dad3e-x86_64.AppImage && chmod +x deps/fontforge
+[ ! -f deps/font-patcher ] && wget -O deps/FontPatcher.zip https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip && unzip deps/FontPatcher.zip -d deps && chmod +x deps/font-patcher
 
 cp LICENSE out
 cp README.md out
@@ -46,7 +50,15 @@ pcf() {
 	fi
 }
 
+nerd() {
+	if [ "$n" != "" ]; then
+		deps/fontforge -script "$PWD"/deps/font-patcher "$PWD"/out/kirsch.ttf -out "$PWD"/out --careful -c "$@"
+	fi
+}
+
 bnp src/kirsch.kbitx kirsch ttf
+nerd
+nerd -s
 bnp src/kirsch.kbitx kirsch bdf
 sed -i -e '/^FONT/s/-[pc]-/-M-/i' -e '/^FONT/s/-80-/-50-/' out/kirsch.bdf
 ff kirsch
