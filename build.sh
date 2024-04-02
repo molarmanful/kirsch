@@ -74,6 +74,10 @@ if command -v bdfresize &>/dev/null; then
 	done
 fi
 
+if command -v bdfresize &>/dev/null; then
+	woff2 out/kirsch.ttf
+fi
+
 rm -f out/*-*.bdf
 
 zip -r "out/kirsch_$v.zip" out/*

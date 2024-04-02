@@ -2,7 +2,7 @@
 name: pub
 on:
   push:
-    tags: ['*']
+    tags: ["*"]
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
@@ -19,7 +19,7 @@ jobs:
           distribution: temurin
           java-version: 21
       - name: deps
-        run: sudo apt install fuse bdfresize xfonts-utils
+        run: sudo apt install fuse bdfresize xfonts-utils woff2
       - name: build
         env:
           REF: ${{ github.ref_name }}
