@@ -31,5 +31,8 @@
   :global(:root) {
     font-family: kirsch;
     font-size: var(--sz);
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
   }
 </style>
