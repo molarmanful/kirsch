@@ -9,6 +9,8 @@ concurrency:
 jobs:
   pub:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -35,11 +37,16 @@ jobs:
         env:
           REF: ${{ github.ref_name }}
         run: ./build.sh -v "$REF" -n
-      - uses: simenandre/publish-with-pnpm@v2
-        with:
-          npm-auth-token: ${{ secrets.NPM_TOKEN }}
-      - name: Release
+      - name: release
         uses: svenstaro/upload-release-action@2.7.0
         with:
           file: out/*
           file_glob: true
+      - name: pub to npm
+        run: |
+          pnpm version from-git --no-commit-hooks --no-git-tag-version --allow-same-version
+          pnpm publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: push
+        uses: stefanzweifel/git-auto-commit-action@v5

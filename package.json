@@ -5,9 +5,13 @@
   "keywords": [],
   "author": "The kirsch Project Authors",
   "license": "OFL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/molarmanful/kirsch.git"
+  },
   "files": [
     "out/",
     "kirsch.css",
-    "img"
+    "img/"
   ]
 }
