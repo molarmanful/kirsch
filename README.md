@@ -86,6 +86,9 @@ Patched Nerd Fonts are available. The "Mono" variant uses smaller glyphs
 (single- instead of double-width) and works for terminals that can't mix
 widths.
 
+I would generally discourage usage of kirsch on the web due to lack of bitmap
+support. But for the stubborn and the brave, WOFF2 is available.
+
 ### Manually Building
 
 Requirements:
@@ -96,8 +99,9 @@ Requirements:
 Optional:
 
 - HarfBuzz utilities (e.g. `apt install libharfbuzz-bin`)
-- bdfresize (e.g. `apt install bdfresize`)
-- bdftopcf (e.g. `apt install xfonts-utils`)
+- `bdfresize` (e.g. `apt install bdfresize`)
+- `bdftopcf` (e.g. `apt install xfonts-utils`)
+- `compress_woff2` (e.g. `apt install woff2`)
 
 `git clone` and run `build.sh`. Font files output to `out/`.
 
@@ -112,7 +116,7 @@ Optional:
 HarfBuzz utilities are necessary if you wish to use `img.sh` to generate the
 images found in `img/`, but is otherwise unused in the building of the final
 font files. `bdfresize` is for generating HiDPI fonts. `bdftopcf` is for
-generating PCF fonts.
+generating PCF fonts. `compress_woff2` is for generating WOFF2 fonts.
 
 ## Design Notes
 

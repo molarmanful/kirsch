@@ -3,15 +3,9 @@
 rm -rf out
 mkdir -p deps out img
 
-[ ! -f deps/BitsNPicas.jar ] && wget -O deps/BitsNPicas.jar https://github.com/kreativekorp/bitsnpicas/releases/latest/download/BitsNPicas.jar
+. ./fns.sh
 
-bnp() {
-	java -jar deps/BitsNPicas.jar convertbitmap -f "$3" -o out/"$2.$3" "$1"
-}
-
-hb() {
-	hb-view --text-file="$1" --font-size=16 -o img/"$2".png --foreground=#86CB92 --background=#1F0318 out/kirsch.ttf
-}
+bnp_dep
 
 bnp src/kirsch.kbitx kirsch ttf
 bnp src/kirsch.kbitx kirsch bdf

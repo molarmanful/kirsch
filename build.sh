@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+. ./fns.sh
+
 while getopts "v:n" o; do
 	case $o in
 	v)
@@ -17,52 +19,24 @@ done
 rm -rf out
 mkdir -p deps out
 
-[ ! -f deps/BitsNPicas.jar ] && wget -O deps/BitsNPicas.jar https://github.com/kreativekorp/bitsnpicas/releases/latest/download/BitsNPicas.jar
-[ ! -f deps/fontforge ] && wget -O deps/fontforge https://github.com/fontforge/fontforge/releases/download/20230101/FontForge-2023-01-01-a1dad3e-x86_64.AppImage && chmod +x deps/fontforge
-[ ! -f deps/font-patcher ] && wget -O deps/FontPatcher.zip https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip && unzip deps/FontPatcher.zip -d deps && chmod +x deps/font-patcher
-
-cp LICENSE out
 cp README.md out
+cp LICENSE out
+cp AUTHORS out
 
-bnp() {
-	java -jar deps/BitsNPicas.jar convertbitmap -f "$3" -o out/"$2.$3" "$1"
-}
-
-ff() {
-	s=$(
-		cat <<-'END'
-			f = open(argv[1])
-			f.encoding = "UnicodeFull"
-			f.fullname = argv[3]
-			f.fontname = argv[3]
-			f.generate(argv[2], "otb")
-			f.generate(argv[2] + "dfont", "sbit")
-		END
-	)
-	deps/fontforge -c "$s" "$PWD"/out/"$1".bdf "$PWD"/out/"$1". "$1"
-}
-
-pcf() {
-	if command -v bdftopcf &>/dev/null; then
-		perl scripts/ffff.pl <out/"$1".bdf >tmp.bdf
-		sed -i "s/^CHARS .*/CHARS $(grep -c '^ENDCHAR' tmp.bdf)/" tmp.bdf
-		bdftopcf -o out/"$1".pcf tmp.bdf
-	fi
-}
-
-nerd() {
-	if [ "$n" != "" ]; then
-		deps/fontforge -script "$PWD"/deps/font-patcher "$PWD"/out/kirsch.ttf -out "$PWD"/out --careful -c "$@"
-	fi
-}
+bnp_dep
+ff_dep
+nerd_dep
 
 bnp src/kirsch.kbitx kirsch ttf
-nerd
-nerd -s
+ttfix kirsch
 bnp src/kirsch.kbitx kirsch bdf
 sed -i -e '/^FONT/s/-[pc]-/-M-/i' -e '/^FONT/s/-80-/-50-/' out/kirsch.bdf
 ff kirsch
 pcf kirsch
+if [ "$n" != "" ]; then
+	nerd
+	nerd -s
+fi
 
 if command -v bdfresize &>/dev/null; then
 	for n in 2 3; do

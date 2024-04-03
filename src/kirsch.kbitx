@@ -8,7 +8,7 @@
 <prop id="lineGap" value="0"/>
 <prop id="xHeight" value="5"/>
 <prop id="capHeight" value="9"/>
-<name id="0" value="Copyright (c) 2024, Benjamin Pang (@molarmanful)"/>
+<name id="0" value="Copyright 2024 The kirsch Project Authors (https://github.com/molarmanful/kirsch)"/>
 <name id="1" value="kirsch"/>
 <name id="2" value="Medium"/>
 <name id="3" value="molarmanful: kirsch: 2024"/>
@@ -16,9 +16,11 @@
 <name id="5" value="Version 1.0"/>
 <name id="6" value="kirsch"/>
 <name id="8" value="Benjamin Pang"/>
+<name id="9" value="Benjamin Pang"/>
 <name id="11" value="https://github.com/molarmanful/kirsch"/>
-<name id="13" value="SIL Open Font License 1.1"/>
-<name id="14" value="https://github.com/molarmanful/kirsch/blob/main/LICENSE"/>
+<name id="12" value="https://bennyboy.tech"/>
+<name id="13" value="This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"/>
+<name id="14" value="https://scripts.sil.org/OFL"/>
 <g u="32" x="0" y="0" w="6" d="AAA"/>
 <g u="33" x="3" y="9" w="6" d="CQFHwgD/"/>
 <g u="34" x="2" y="9" w="6" d="AwPC/wBCAULCAP8"/>
@@ -114,6 +116,7 @@
 <g u="124" x="3" y="9" w="6" d="CwFL"/>
 <g u="125" x="1" y="9" w="6" d="CwVCBUEEQQRBBEEFQgJBBEEEQQRBAkID"/>
 <g u="126" x="1" y="5" w="6" d="AwXCAP8CQsMA/wBCAsL/AA"/>
+<g u="160" x="0" y="0" w="6" d="AAA"/>
 <g u="161" x="3" y="7" w="6" d="CQHC/wBH"/>
 <g u="162" x="1" y="8" w="6" d="CQUCQQRBA0PEAP8A/wLD/wD/Asb/AP8A/wBDA0EEQQI"/>
 <g u="163" x="1" y="8" w="6" d="CAUCQQPD/wD/AkEEQQNDA0EEQQJCAUIB"/>
@@ -126,7 +129,6 @@
 <g u="170" x="2" y="9" w="6" d="BgMBQwFCwwD/AEIDQw"/>
 <g u="171" x="1" y="6" w="6" d="BQUCy/8A/wD/AP8A/wD/A8P/AP8Dw/8A/w"/>
 <g u="172" x="1" y="4" w="6" d="AwVFBEEEQQ"/>
-<g u="173" x="2" y="4" w="6" d="AQND"/>
 <g u="174" x="0" y="8" w="6" d="CAcCQwNBA8T/AP8AQgJCxQD/AP8AQgFCAkLIAP8A/wD/AP8DQQNDAg"/>
 <g u="175" x="1" y="9" w="6" d="AQVF"/>
 <g u="176" x="2" y="9" w="6" d="AwPJAP8A/wD/AP8A"/>
@@ -2137,7 +2139,7 @@
 <g u="8569" x="1" y="5" w="6" d="BQVCAULEAP8A/wNBA8T/AP8AQgFC"/>
 <g u="8570" x="1" y="7" w="6" d="BwUEQQXE/wD/AELGAP8A/wD/AkLDAP8AQsQA/wD/"/>
 <g u="8571" x="0" y="7" w="6" d="BwcEw/8A/wfG/wD/AP8AQsgA/wD/AP8A/wLC/wBCxQD/AP8AQsYA/wD/AP8"/>
-<g u="8572" x="1" y="8" w="5" d="CANCAkECQQJBAkECQQLC/wBD"/>
+<g u="8572" x="3" y="8" w="7" d="CANCAkECQQJBAkECQQLC/wBD"/>
 <g u="8573" x="1" y="5" w="6" d="BQUBQ8IA/wLD/wD/BEEDwv8AQwE"/>
 <g u="8574" x="1" y="8" w="6" d="CAUCQgRBBEECQ8IA/wLD/wD/AsP/AP8CQQJE"/>
 <g u="8575" x="1" y="5" w="6" d="BQVCxwD/AP8A/wBCwwD/AELDAP8AQsQA/wD/"/>
@@ -4083,6 +4085,7 @@
 <g u="43005" x="1" y="9" w="6" d="CQVBA0IDQsMA/wBCwwD/AELDAP8AQwFEAUMDQgNB"/>
 <g u="43006" x="1" y="9" w="6" d="DAVFAkEEQQRBBEEEQQRBBEEEQQRBBEECRQ"/>
 <g u="43007" x="0" y="9" w="6" d="CQfCAP8Cxf8A/wD/AsL/AELFAP8A/wBCxQD/AP8AQsUA/wD/AELFAP8A/wBCxQD/AP8AQgLF/wD/AP8CxP8A/wA"/>
+<g u="43859" x="1" y="5" w="6" d="CAVBA8X/AP8A/wLD/wD/A0EEQQPD/wD/AsX/AP8A/wNB"/>
 <g u="57504" x="1" y="9" w="6" d="CgVBBEECxP8A/wBEAsP/AP8CQQNBA0EDQQRBBEEE"/>
 <g u="57505" x="1" y="9" w="6" d="CQVBBEEEQQRDCEECwv8AQsUA/wD/AELCAP8CQQ"/>
 <g u="57506" x="1" y="8" w="6" d="CAUBQwLD/wD/AsT/AP8ARwFEAUcBQwE"/>
@@ -4883,4 +4886,5 @@
 <g u="130039" x="2" y="9" w="6" d="CARDBEEDQQNBB0EDQQNB"/>
 <g u="130040" x="1" y="9" w="6" d="CQUBQ8IA/wNCA0IDwv8AQ8IA/wNCA0IDwv8AQwE"/>
 <g u="130041" x="1" y="9" w="6" d="CQUBQ8IA/wNCA0IDwv8AQwVBBEEEwv8AQwE"/>
+<g n=".notdef" x="1" y="12" w="6" d="DwVGA0IDQsMA/wBDAUMCQwJDwwD/AELDAP8AQsMA/wBCA0LDAP8AQgNCA0Y"/>
 </kbits>
