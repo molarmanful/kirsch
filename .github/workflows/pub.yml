@@ -45,7 +45,7 @@ jobs:
       - name: pub to npm
         run: |
           pnpm version from-git --no-commit-hooks --no-git-tag-version --allow-same-version
-          pnpm publish --access public --no-git-checks
+          pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: push

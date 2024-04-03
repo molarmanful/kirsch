@@ -86,8 +86,20 @@ Patched Nerd Fonts are available. The "Mono" variant uses smaller glyphs
 (single- instead of double-width) and works for terminals that can't mix
 widths.
 
+### Web
+
 I would generally discourage usage of kirsch on the web due to lack of bitmap
-support. But for the stubborn and the brave, WOFF2 is available.
+support. But for the stubborn and the brave, WOFF2 is available. There is also
+a [CDN-hosted
+stylesheet](https://cdn.jsdelivr.net/npm/kirsch@latest/kirsch.css) for
+convenience.
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/kirsch@latest/kirsch.css"
+/>
+```
 
 ### Manually Building
 
