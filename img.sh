@@ -40,7 +40,7 @@ for ((n = 1; n <= list[-1] / 16; n++)); do
 		fi
 	done
 	printf '\n'
-done | perl -pe 's/\p{M}/ $&/g' | grep -Ew 'U+[a-z0-9_]+ │ +[^ ]' >>txt/map.txt
+done | perl -pe 's/\p{M}/ $&/g' | grep -Ew 'U\+\w+ . +[^ ]' >>txt/map.txt
 
 echo 'samples...'
 for f in prog eng multi scala clojure go svelte apl engalt pretty math box braille; do
