@@ -7,6 +7,12 @@ import {
 } from 'unocss'
 
 export default {
+  theme: {
+    colors: {
+      fg: '#86CB92',
+      bg: '#1F0318',
+    },
+  },
   presets: [
     presetUno(),
     presetWebFonts({
