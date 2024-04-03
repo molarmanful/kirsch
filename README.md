@@ -86,7 +86,7 @@ Requirements:
 
 Optional:
 
-- hb-view (e.g. `apt install libharfbuzz-bin`)
+- HarfBuzz utilities (e.g. `apt install libharfbuzz-bin`)
 - bdfresize (e.g. `apt install bdfresize`)
 - bdftopcf (e.g. `apt install xfonts-utils`)
 
@@ -100,10 +100,10 @@ Optional:
   formats not found on the Releases page.
 - A Nerd Fonts Patcher, which requires `-n` to activate.
 
-`hb-view` is necessary if you wish to use
-`img.sh` to generate the images found in `img/`, but is otherwise unused in the
-building of the final font files. `bdfresize` is for generating HiDPI fonts.
-`bdftopcf` is for generating PCF fonts.
+HarfBuzz utilities are necessary if you wish to use `img.sh` to generate the
+images found in `img/`, but is otherwise unused in the building of the final
+font files. `bdfresize` is for generating HiDPI fonts. `bdftopcf` is for
+generating PCF fonts.
 
 ## Design Notes
 

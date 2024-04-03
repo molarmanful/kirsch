@@ -74,8 +74,8 @@ if command -v bdfresize &>/dev/null; then
 	done
 fi
 
-if command -v bdfresize &>/dev/null; then
-	woff2 out/kirsch.ttf
+if command -v woff2_compress &>/dev/null; then
+	woff2_compress out/kirsch.ttf
 fi
 
 rm -f out/*-*.bdf
