@@ -1,0 +1,12 @@
+{
+  "name": "kirsch",
+  "version": "",
+  "description": "A versatile bitmap font with an organic flair.",
+  "keywords": [],
+  "author": "The kirsch Project Authors",
+  "license": "OFL",
+  "files": [
+    "out/",
+    "kirsch.css"
+  ]
+}

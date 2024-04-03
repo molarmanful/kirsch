@@ -2,7 +2,7 @@
 name: pub
 on:
   push:
-    tags: ["*"]
+    tags: ['*']
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
@@ -18,12 +18,22 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-      - name: deps
-        run: sudo apt install fuse bdfresize xfonts-utils woff2
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '*'
+          cache: pnpm
+      - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: fuse bdfresize xfonts-utils woff2
+          version: 1.0
       - name: build
         env:
           REF: ${{ github.ref_name }}
         run: ./build.sh -v "$REF" -n
+      - uses: simenandre/publish-with-pnpm@v2
+        with:
+          npm-auth-token: ${{ secrets.NPM_TOKEN }}
       - name: Release
         uses: svenstaro/upload-release-action@2.7.0
         with:
