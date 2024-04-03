@@ -25,6 +25,7 @@ jobs:
         with:
           node-version: '*'
           cache: pnpm
+      - run: pnpm i
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: fuse bdfresize xfonts-utils woff2
