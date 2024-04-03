@@ -4,4 +4,11 @@
   import 'uno.css'
 </script>
 
+<svelte:head>
+  <link
+    href="https://cdn.jsdelivr.net/npm/kirsch@latest/kirsch.css"
+    rel="stylesheet"
+  />
+</svelte:head>
+
 <slot />
