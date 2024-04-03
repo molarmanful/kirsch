@@ -19,6 +19,8 @@ jobs:
           distribution: temurin
           java-version: 21
       - uses: pnpm/action-setup@v2
+        with:
+          version: '*'
       - uses: actions/setup-node@v3
         with:
           node-version: '*'
