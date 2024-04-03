@@ -2,7 +2,7 @@
   font-family: "kirsch";
   src:
     local("kirsch"),
-    url("kirsch.woff2") format("woff2"),
-    url("kirsch.ttf") format("truetype");
+    url("out/kirsch.woff2") format("woff2"),
+    url("out/kirsch.ttf") format("truetype");
   font-display: swap;
 }
