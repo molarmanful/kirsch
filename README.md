@@ -39,10 +39,19 @@
 ## Gallery
 
 <details>
-<summary><strong>Supported Glyphs</strong></summary>
+<summary><strong>Glyphs</strong></summary>
 <div align="center">
 
-![kirsch chars](./img/chars.png)
+![kirsch glyphs](./img/chars.png)
+
+</div>
+</details>
+
+<details>
+<summary><strong>Glyphs Map</strong></summary>
+<div align="center">
+
+![kirsch glyph map](./img/map.png)
 
 </div>
 </details>
