@@ -50,3 +50,5 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: push
         uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: master
