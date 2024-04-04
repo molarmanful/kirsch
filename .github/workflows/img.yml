@@ -20,8 +20,10 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-      - name: deps
-        run: sudo apt install libharfbuzz-bin
+      - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: libharfbuzz-bin
+          version: 1.0
       - name: build
         run: ./img.sh
       - name: push
