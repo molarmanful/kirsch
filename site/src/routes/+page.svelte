@@ -20,12 +20,18 @@
   let els
   const rpx = () => {
     for (let el of els) {
-      el.style.marginLeft = el.style.marginRight = 'auto'
-      const m =
-        0 |
-        getComputedStyle(el).getPropertyValue('margin-left').replace('px', '')
-      console.log(m)
-      el.style.marginLeft = m + 'px'
+      const style = getComputedStyle(el)
+      if (el.matches('section, [rsz-x]')) {
+        el.style.marginLeft = el.style.marginRight = 'auto'
+        const m = 0 | style.getPropertyValue('margin-left').replace('px', '')
+        el.style.marginLeft = m + 'px'
+      }
+      if (el.matches('[rsz-y]')) {
+        el.style.marginTop = el.style.marginBottom = 'auto'
+        const m = 0 | style.getPropertyValue('margin-top').replace('px', '')
+        console.log(style.getPropertyValue('margin-top'), m)
+        el.style.marginTop = m + 'px'
+      }
     }
   }
 
@@ -34,7 +40,7 @@
   let loaded = false
 
   onMount(() => {
-    els = document.querySelectorAll('section')
+    els = document.querySelectorAll('section, [rsz-x], [rsz-y]')
     rpx()
     updpi()
     loaded = true
@@ -48,8 +54,19 @@
 <svelte:window on:resize={rpx} />
 
 <div class="{loaded ? 'opacity-100' : 'opacity-0'} transition-opacity w-screen">
+  <header class="screen flex">
+    <div class="m-auto bg-bg" rsz-x rsz-y>
+      <h1 class="text-[8rem]">kirsch</h1>
+      <h2>A versatile bitmap font with an organic flair.</h2>
+      <div class="mt-16 flex gap-8">
+        <button>ORDER</button>
+        <button>ORDER</button>
+        <button>ORDER</button>
+      </div>
+    </div>
+  </header>
+
   <section>
-    <h1>kirsch</h1>
     <p>
       Grumpy wizards make toxic brew for the evil Queen and Jack. One morning,
       when Gregor Samsa woke from troubled dreams, he found himself transformed
@@ -82,8 +99,12 @@
     -webkit-text-size-adjust: none;
   }
 
-  :global(section) {
-    @apply mx-auto max-w-[80ch] px-8;
+  :global(section, [rsz-x], [rsz-y]) {
+    @apply mx-auto max-w-[80ch] p-8;
+  }
+
+  :global(h1, h2, h3) {
+    @apply my-[1em];
   }
 
   :global(h1) {
@@ -100,5 +121,9 @@
 
   :global(p) {
     @apply hyphens-auto;
+  }
+
+  :global(button) {
+    @apply font-inherit text-([1rem] inherit) bg-transparent border-(1 solid current) px-3 py-2;
   }
 </style>
