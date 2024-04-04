@@ -10,6 +10,7 @@
 - [Overview](#overview)
 - [Gallery](#gallery)
 - [Installation](#installation)
+  - [Web](#web)
   - [Manually Building](#manually-building)
 - [Design Notes](#design-notes)
   - [Flourishes](#flourishes)
