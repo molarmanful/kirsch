@@ -3,6 +3,9 @@
 
   import { browser } from '$app/environment'
 
+  const adjust = n => (0 | (n * devicePixelRatio)) / devicePixelRatio
+
+  let pxdiff = 1
   let rm = () => {}
   const updpi = () => {
     rm()
@@ -11,27 +14,40 @@
     rm = () => {
       media.removeEventListener('change', updpi)
     }
+    pxdiff = (0 | devicePixelRatio) / devicePixelRatio
     document.documentElement.style.setProperty(
       '--sz',
-      (16 * factor * (0 | devicePixelRatio)) / devicePixelRatio + 'px'
+      16 * factor * pxdiff + 'px'
     )
   }
 
   let els
   const rpx = () => {
     for (let el of els) {
-      const style = getComputedStyle(el)
       if (el.matches('section, [rsz-x]')) {
         el.style.marginLeft = el.style.marginRight = 'auto'
-        const m = 0 | style.getPropertyValue('margin-left').replace('px', '')
-        el.style.marginLeft = m + 'px'
       }
       if (el.matches('[rsz-y]')) {
         el.style.marginTop = el.style.marginBottom = 'auto'
-        const m = 0 | style.getPropertyValue('margin-top').replace('px', '')
-        console.log(style.getPropertyValue('margin-top'), m)
-        el.style.marginTop = m + 'px'
       }
+      requestAnimationFrame(() => {
+        if (el.matches('section, [rsz-x]')) {
+          const m = adjust(
+            getComputedStyle(el)
+              .getPropertyValue('margin-left')
+              .replace('px', '')
+          )
+          el.style.marginLeft = m + 'px'
+        }
+        if (el.matches('[rsz-y]')) {
+          const m = adjust(
+            getComputedStyle(el)
+              .getPropertyValue('margin-top')
+              .replace('px', '')
+          )
+          el.style.marginTop = m + 'px'
+        }
+      })
     }
   }
 
@@ -100,7 +116,15 @@
   }
 
   :global(section, [rsz-x], [rsz-y]) {
-    @apply mx-auto max-w-[80ch] p-8;
+    @apply max-w-[80ch] p-8;
+  }
+
+  :global([rsz-x]) {
+    @apply mx-auto;
+  }
+
+  :global([rsz-y]) {
+    @apply my-auto;
   }
 
   :global(h1, h2, h3) {
