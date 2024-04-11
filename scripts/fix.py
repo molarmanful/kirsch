@@ -7,6 +7,7 @@ f.em = 2048
 f.correctDirection()
 f.removeOverlap()
 for g in f:
+    f[g].width = 768
     if f[g].unicode != -1:
         f[g].glyphname = nameFromUnicode(f[g].unicode, "AGL with PUA")
 f.encoding = "UnicodeFull"

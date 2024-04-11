@@ -30,7 +30,7 @@ nerd_dep
 bnp src/kirsch.kbitx kirsch ttf
 ttfix kirsch
 bnp src/kirsch.kbitx kirsch bdf
-sed -i -e '/^FONT/s/-[pc]-/-M-/i' -e '/^FONT/s/-80-/-50-/' out/kirsch.bdf
+sed -i -e '/^FONT /s/-[pc]-/-M-/i' -e '/^FONT /s/-80-/-50-/' out/kirsch.bdf
 ff kirsch
 pcf kirsch
 if [ "$n" != "" ]; then
