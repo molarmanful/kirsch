@@ -23,6 +23,7 @@
 
   let els
   const rpx = () => {
+    els = document.querySelectorAll('section, [rsz-x], [rsz-y]')
     for (let el of els) {
       if (el.matches('section, [rsz-x]')) {
         el.style.marginLeft = el.style.marginRight = 'auto'
@@ -32,20 +33,20 @@
       }
       requestAnimationFrame(() => {
         if (el.matches('section, [rsz-x]')) {
-          const m = adjust(
-            getComputedStyle(el)
-              .getPropertyValue('margin-left')
-              .replace('px', '')
-          )
-          el.style.marginLeft = m + 'px'
+          el.style.marginLeft =
+            adjust(
+              getComputedStyle(el)
+                .getPropertyValue('margin-left')
+                .replace('px', '')
+            ) + 'px'
         }
         if (el.matches('[rsz-y]')) {
-          const m = adjust(
-            getComputedStyle(el)
-              .getPropertyValue('margin-top')
-              .replace('px', '')
-          )
-          el.style.marginTop = m + 'px'
+          el.style.marginTop =
+            adjust(
+              getComputedStyle(el)
+                .getPropertyValue('margin-top')
+                .replace('px', '')
+            ) + 'px'
         }
       })
     }
@@ -56,7 +57,6 @@
   let loaded = false
 
   onMount(() => {
-    els = document.querySelectorAll('section, [rsz-x], [rsz-y]')
     rpx()
     updpi()
     loaded = true
@@ -71,13 +71,24 @@
 
 <div class="{loaded ? 'opacity-100' : 'opacity-0'} transition-opacity w-screen">
   <header class="screen flex">
-    <div class="m-auto bg-bg" rsz-x rsz-y>
+    <div class="bg-bg" rsz-x rsz-y>
       <h1 class="text-[8rem]">kirsch</h1>
       <h2>A versatile bitmap font with an organic flair.</h2>
       <div class="mt-16 flex gap-8">
-        <button>ORDER</button>
-        <button>ORDER</button>
-        <button>ORDER</button>
+        <a
+          class="text-inherit"
+          href="https://github.com/molarmanful/kirsch/releases"
+          target="_blank"
+        >
+          <button class="text-[2rem]">DOWNLOAD</button>
+        </a>
+        <a
+          class="text-inherit"
+          href="https://github.com/molarmanful/kirsch"
+          target="_blank"
+        >
+          <button class="text-[2rem]">GITHUB</button>
+        </a>
       </div>
     </div>
   </header>
@@ -148,6 +159,6 @@
   }
 
   :global(button) {
-    @apply font-inherit text-([1rem] inherit) bg-transparent border-(1 solid current) px-3 py-2;
+    @apply font-inherit text-([1rem] inherit) bg-transparent border-(1 solid current) px-[.75em] py-[.5em] cursor-pointer;
   }
 </style>
