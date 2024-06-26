@@ -2,6 +2,7 @@
   import { onMount } from 'svelte'
 
   import { browser } from '$app/environment'
+  import { Header } from '$lib'
 
   const adjust = n => (0 | (n * devicePixelRatio)) / devicePixelRatio
 
@@ -70,28 +71,7 @@
 <svelte:window on:resize={rpx} />
 
 <div class="{loaded ? 'opacity-100' : 'opacity-0'} transition-opacity w-screen">
-  <header class="screen flex">
-    <div class="bg-bg" rsz-x rsz-y>
-      <h1 class="text-[8rem]">kirsch</h1>
-      <h2>A versatile bitmap font with an organic flair.</h2>
-      <div class="mt-16 flex gap-8">
-        <a
-          class="text-inherit"
-          href="https://github.com/molarmanful/kirsch/releases"
-          target="_blank"
-        >
-          <button class="text-[2rem]">DOWNLOAD</button>
-        </a>
-        <a
-          class="text-inherit"
-          href="https://github.com/molarmanful/kirsch"
-          target="_blank"
-        >
-          <button class="text-[2rem]">GITHUB</button>
-        </a>
-      </div>
-    </div>
-  </header>
+  <Header />
 
   <section>
     <p>
@@ -106,59 +86,3 @@
     </p>
   </section>
 </div>
-
-<style>
-  :global(*) {
-    @apply font-normal line-height-none;
-  }
-
-  :global(:root) {
-    @apply text-fg bg-bg;
-    font-family: kirsch;
-    font-size: var(--sz);
-    -moz-osx-font-smoothing: grayscale;
-    font-smooth: never;
-    filter: contrast(100.00001%);
-  }
-
-  :global(body) {
-    text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-  }
-
-  :global(section, [rsz-x], [rsz-y]) {
-    @apply max-w-[80ch] p-8;
-  }
-
-  :global([rsz-x]) {
-    @apply mx-auto;
-  }
-
-  :global([rsz-y]) {
-    @apply my-auto;
-  }
-
-  :global(h1, h2, h3) {
-    @apply my-[1em];
-  }
-
-  :global(h1) {
-    @apply text-[5rem] my-[3rem];
-  }
-
-  :global(h2) {
-    @apply text-[3rem] my-[2rem];
-  }
-
-  :global(h3) {
-    @apply text-[2rem] my-[1rem];
-  }
-
-  :global(p) {
-    @apply hyphens-auto;
-  }
-
-  :global(button) {
-    @apply font-inherit text-([1rem] inherit) bg-transparent border-(1 solid current) px-[.75em] py-[.5em] cursor-pointer;
-  }
-</style>

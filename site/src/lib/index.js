@@ -1,1 +1,3 @@
-// place files you want to import through the `$lib` alias in this folder.
+export { default as Header } from './Header.svelte'
+
+export const randitem = xs => xs[0 | (Math.random() * xs.length)]

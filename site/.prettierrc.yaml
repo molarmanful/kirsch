@@ -7,6 +7,7 @@ singleQuote: true
 arrowParens: avoid
 svelteSelfCloseElements: always
 svelteSelfCloseComponents: always
+experimentalTernaries: true
 overrides:
   - files: '*.svelte'
     options:
