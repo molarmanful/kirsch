@@ -3,17 +3,17 @@
 . ./fns.sh
 
 while getopts "v:n" o; do
-	case $o in
-	v)
-		if [ "$OPTARG" != "" ]; then
-			v=$OPTARG
-		fi
-		;;
-	n)
-		n=1
-		;;
-	*) ;;
-	esac
+  case $o in
+  v)
+    if [ "$OPTARG" != "" ]; then
+      v=$OPTARG
+    fi
+    ;;
+  n)
+    n=1
+    ;;
+  *) ;;
+  esac
 done
 
 rm -rf out
@@ -30,26 +30,25 @@ nerd_dep
 bnp src/kirsch.kbitx kirsch ttf
 ttfix kirsch
 bnp src/kirsch.kbitx kirsch bdf
-sed -i -e '/^FONT /s/-[pc]-/-M-/i' -e '/^FONT /s/-80-/-50-/' out/kirsch.bdf
+sed -i -e 's/^FONT .*$/FONT -molarmanful-kirsch-Medium-R-Normal--16-16-75-75-M-50-iso10646-1/' out/kirsch.bdf
 ff kirsch
 pcf kirsch
 if [ "$n" != "" ]; then
-	nerd
-	nerd -s
+  nerd
+  nerd -s
 fi
 
 if command -v bdfresize &>/dev/null; then
-	for n in 2 3; do
-		name=kirsch${n}x
-		bdfresize -f 2 out/kirsch.bdf >out/"$name".bdf
-		sed -i -e 's/^iso.*-FONT/FONT/g' -e "s/kirsch/$name/g" out/"$name".bdf
-		ff "$name"
-		pcf "$name"
-	done
+  for n in 2 3; do
+    name=kirsch${n}x
+    bdfresize -f 2 out/kirsch.bdf >out/"$name".bdf
+    ff "$name"
+    pcf "$name"
+  done
 fi
 
 if command -v woff2_compress &>/dev/null; then
-	woff2_compress out/kirsch.ttf
+  woff2_compress out/kirsch.ttf
 fi
 
 rm -f out/*-*.bdf
