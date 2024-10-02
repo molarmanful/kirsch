@@ -41,7 +41,7 @@ fi
 if command -v bdfresize &>/dev/null; then
   for n in 2 3; do
     name=kirsch${n}x
-    bdfresize -f 2 out/kirsch.bdf >out/"$name".bdf
+    bdfresize -f "$n" out/kirsch.bdf >out/"$name".bdf
     ff "$name"
     pcf "$name"
   done
