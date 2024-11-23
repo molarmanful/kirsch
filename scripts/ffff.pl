@@ -8,7 +8,7 @@ while ( my $l = <STDIN> ) {
     $s = 0;
   }
   print $l if $s;
-  if ( $l =~ /^ENDCHAR/ ) {
+  if ( $l =~ /^ENDCHAR$/ ) {
     $s = 1;
   }
 }

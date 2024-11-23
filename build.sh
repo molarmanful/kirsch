@@ -27,10 +27,9 @@ bnp_dep
 ff_dep
 nerd_dep
 
-bnp src/kirsch.kbitx kirsch ttf
+cp src/kirsch.bdf out
+bnp src/kirsch.bdf kirsch ttf
 ttfix kirsch
-bnp src/kirsch.kbitx kirsch bdf
-sed -i -e 's/^FONT .*$/FONT -molarmanful-kirsch-Medium-R-Normal--16-150-75-75-M-60-iso10646-1/' out/kirsch.bdf
 ff kirsch
 pcf kirsch
 if [ "$n" != "" ]; then
