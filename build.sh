@@ -31,7 +31,7 @@ cp src/kirsch.bdf out
 bnp src/kirsch.bdf kirsch ttf
 ttfix kirsch
 ff kirsch
-pcf kirsch
+# pcf kirsch
 if [ "$n" != "" ]; then
   nerd
   nerd -s
@@ -42,7 +42,7 @@ if command -v bdfresize &>/dev/null; then
     name=kirsch${n}x
     bdfresize -f "$n" out/kirsch.bdf >out/"$name".bdf
     ff "$name"
-    pcf "$name"
+    # pcf "$name"
   done
 fi
 
