@@ -69,8 +69,9 @@
 ## Installation
 
 Download from [Releases](https://github.com/molarmanful/kirsch/releases).
-Included are bitmap formats - OTB, BDF, DFONT for Mac users - as well as TTF.
-2x and 3x versions are available for HiDPI screens.
+Included are bitmap formats - OTB, BDF, PCF, DFONT (for Mac users) - as well as TTF.
+2x versions are available for HiDPI screens. Note that PCF doesn't contain
+glyphs past U+FFFF.
 
 For the crispiest viewing experience, try to use the bitmap formats when
 possible. If bitmap fonts are not supported on your platform (e.g. Windows,
