@@ -10,7 +10,7 @@ bnp_dep
 bnp src/kirsch.bdf kirsch ttf
 
 echo 'chars...'
-readarray -t list < <(grep '^ENCODING ' src/kirsch.bdf | cut -d' ' -f2)
+readarray -t list < <(grep '^ENCODING [^-]' src/kirsch.bdf | cut -d' ' -f2)
 for n in "${list[@]}"; do
   char=$(printf '\\U%x' "$n")
   printf '%b' "$char"
