@@ -107,7 +107,7 @@ convenience.
 Requirements:
 
 - Java (for [Bits'n'Picas](https://github.com/kreativekorp/bitsnpicas))
-- FUSE (e.g. `apt install fuse`)
+- FUSE (e.g. `apt install libfuse2t64`)
 
 Optional:
 
