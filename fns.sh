@@ -22,7 +22,7 @@ nerd_dep() {
 }
 
 bnp() {
-  java -jar deps/BitsNPicas.jar convertbitmap -f "$3" -o out/"$2.$3" "$1"
+  java -jar deps/BitsNPicas.jar convertbitmap -f "$3" -o out/"$2.$3" -w 1 -h 1 "$1"
 }
 
 ff() {
