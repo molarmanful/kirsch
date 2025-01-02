@@ -6,13 +6,6 @@ bnp_dep() {
   fi
 }
 
-ff_dep() {
-  if [ ! -f deps/fontforge ]; then
-    wget -O deps/fontforge https://github.com/fontforge/fontforge/releases/download/20230101/FontForge-2023-01-01-a1dad3e-x86_64.AppImage
-    chmod +x deps/fontforge
-  fi
-}
-
 nerd_dep() {
   if [ ! -f deps/font-patcher ]; then
     wget -O deps/FontPatcher.zip https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip
@@ -32,7 +25,7 @@ ff() {
   so0=$(cat scripts/so0.py)
   so1=$(cat scripts/so1.py)
   fix=$(cat scripts/fix.py)
-  deps/fontforge -c "$si0$nl$si1$nl$fix$nl$so0" "$PWD"/out/"$1".bdf "$PWD"/out/"$1". "$1"
+  fontforge -c "$si0$nl$si1$nl$fix$nl$so0" out/"$1".bdf out/"$1". "$1"
 }
 
 ttfix() {
@@ -40,7 +33,7 @@ ttfix() {
   si0=$(cat scripts/si0.py)
   so1=$(cat scripts/so1.py)
   fix=$(cat scripts/fix.py)
-  deps/fontforge -c "$si0$nl$fix$nl$so1" "$PWD"/out/"$1".ttf
+  fontforge -c "$si0$nl$fix$nl$so1" out/"$1".ttf
 }
 
 pcf() {
@@ -52,7 +45,7 @@ pcf() {
 }
 
 nerd() {
-  deps/fontforge -script "$PWD"/deps/font-patcher "$PWD"/out/kirsch.ttf -out "$PWD"/out --careful -c "$@"
+  fontforge -script deps/font-patcher out/kirsch.ttf -out out --careful -c "$@"
 }
 
 hb() {

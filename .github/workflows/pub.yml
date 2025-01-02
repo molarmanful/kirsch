@@ -16,10 +16,6 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 21
       - uses: pnpm/action-setup@v3
         with:
           version: "*"
@@ -33,10 +29,22 @@ jobs:
         with:
           packages: libfuse2t64 bdfresize xfonts-utils woff2
           version: 1.0
-      - name: build
-        env:
-          REF: ${{ github.ref_name }}
-        run: ./build.sh -v "$REF" -n
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          tags: build
+          file: img.Dockerfile
+          push: false
+      - uses: addnab/docker-run-action@v3
+        with:
+          image: build
+          options: -v ${{ github.ref_name }} -n
+      - uses: shrink/actions-docker-extract@v3
+        id: extract
+        with:
+          image: build
+          path: /app/out/.
+          destination: out
       - name: release
         uses: svenstaro/upload-release-action@2.7.0
         with:
