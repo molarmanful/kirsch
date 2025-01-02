@@ -12,7 +12,7 @@ FROM deps AS build
 
 RUN aur-install fontforge bdfresize xfonts-bdftopcf woff2 zip
 
-CMD ["./build.sh ${ARGS}"]
+CMD ["./build.sh"]
 
 
 FROM deps AS img

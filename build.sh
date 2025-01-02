@@ -2,26 +2,8 @@
 
 . ./fns.sh
 
-while getopts "v:n" o; do
-  case $o in
-  v)
-    if [ "$OPTARG" != "" ]; then
-      v=$OPTARG
-    fi
-    ;;
-  n)
-    n=1
-    ;;
-  *) ;;
-  esac
-done
-
 rm -rf out
 mkdir -p deps out
-
-cp README.md out
-cp LICENSE out
-cp AUTHORS out
 
 bnp_dep
 nerd_dep
@@ -31,7 +13,7 @@ bnp src/kirsch.bdf kirsch ttf
 ttfix kirsch
 ff kirsch
 pcf kirsch
-if [ "$n" != "" ]; then
+if [ "$NERD" != "" ]; then
   nerd
   nerd -s
 fi
@@ -48,7 +30,3 @@ fi
 if command -v woff2_compress &>/dev/null; then
   woff2_compress out/kirsch.ttf
 fi
-
-rm -f out/*-*.bdf
-
-zip -r "out/kirsch_$v.zip" out/*

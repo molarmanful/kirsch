@@ -25,10 +25,6 @@ jobs:
           registry-url: https://registry.npmjs.org
           cache: pnpm
       - run: pnpm i
-      - uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: libfuse2t64 bdfresize xfonts-utils woff2
-          version: 1.0
       - uses: docker/setup-buildx-action@v3
       - uses: docker/build-push-action@v6
         with:
@@ -38,18 +34,25 @@ jobs:
       - uses: addnab/docker-run-action@v3
         with:
           image: builder
-          options: -e ARGS='-v ${{ github.ref_name }} -n'
+          options: -e NERD=1
       - uses: shrink/actions-docker-extract@v3
         id: extract
         with:
           image: builder
           path: /app/out/.
           destination: out
+      - name: zip
+        run: |
+          cp README.md out
+          cp LICENSE out
+          cp AUTHORS out
+          zip -r "out/kirsch_${{ github.ref_name }}.zip" out/*
       - name: release
         uses: svenstaro/upload-release-action@2.7.0
         with:
           file: out/*
           file_glob: true
+
       - name: pub to npm
         run: |
           pnpm version from-git --no-commit-hooks --no-git-tag-version --allow-same-version
