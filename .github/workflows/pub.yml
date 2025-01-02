@@ -2,7 +2,7 @@
 name: pub
 on:
   push:
-    tags: ['*']
+    tags: ["*"]
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
@@ -22,16 +22,16 @@ jobs:
           java-version: 21
       - uses: pnpm/action-setup@v3
         with:
-          version: '*'
-      - uses: actions/setup-node@v3
+          version: "*"
+      - uses: actions/setup-node@v4
         with:
-          node-version: '*'
+          node-version: "*"
           registry-url: https://registry.npmjs.org
           cache: pnpm
       - run: pnpm i
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: fuse bdfresize xfonts-utils woff2
+          packages: libfuse2t64 bdfresize xfonts-utils woff2
           version: 1.0
       - name: build
         env:
