@@ -35,7 +35,7 @@ jobs:
       - uses: addnab/docker-run-action@v3
         with:
           image: builder
-          options: -e NERD=1
+          options: -e NERD=1 -e XS=2,3
       - uses: shrink/actions-docker-extract@v3
         id: extract
         with:

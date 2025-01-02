@@ -19,7 +19,8 @@ if [ "$NERD" != "" ]; then
 fi
 
 if command -v bdfresize &>/dev/null; then
-  for n in 2 3; do
+  IFS=',' read -r -a xs <<<"$XS"
+  for n in "${xs[@]}"; do
     name=kirsch${n}x
     bdfresize -f "$n" out/kirsch.bdf >out/"$name".bdf
     ff "$name"
