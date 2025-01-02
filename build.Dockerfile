@@ -10,4 +10,4 @@ ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 FROM deps
 COPY . .
-CMD ["./build.sh"]
+ENTRYPOINT ["./build.sh"]

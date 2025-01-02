@@ -106,30 +106,7 @@ convenience.
 
 Requirements:
 
-- Java (for [Bits'n'Picas](https://github.com/kreativekorp/bitsnpicas))
-- FUSE (e.g. `apt install libfuse2t64`)
-
-Optional:
-
-- HarfBuzz utilities (e.g. `apt install libharfbuzz-bin`)
-- `bdfresize` (e.g. `apt install bdfresize`)
-- `bdftopcf` (e.g. `apt install xfonts-utils`)
-- `compress_woff2` (e.g. `apt install woff2`)
-
-`git clone` and run `build.sh`. Font files output to `out/`.
-
-`build.sh` downloads into `deps/`:
-
-- A FontForge AppImage for generating bitmap formats from BDF.
-- A Bits'n'Picas binary. If you wish, you can use this binary
-  (instead of or alongside FontForge) to view glyphs and build desired font
-  formats not found on the Releases page.
-- A Nerd Fonts Patcher, which requires `-n` to activate.
-
-HarfBuzz utilities are necessary if you wish to use `img.sh` to generate the
-images found in `img/`, but is otherwise unused in the building of the final
-font files. `bdfresize` is for generating HiDPI fonts. `bdftopcf` is for
-generating PCF fonts. `compress_woff2` is for generating WOFF2 fonts.
+- Docker
 
 ## Design Notes
 
@@ -165,7 +142,7 @@ also evoke script-style stroke endings.
 ## TODO
 
 - More Unicode support
-- Ligatures
+- Ligatures?
 
 ## Contributing
 

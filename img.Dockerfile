@@ -10,4 +10,4 @@ ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 FROM deps
 COPY . .
-CMD ["./img.sh"]
+ENTRYPOINT ["./img.sh"]
