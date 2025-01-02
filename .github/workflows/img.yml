@@ -22,6 +22,7 @@ jobs:
           tags: builder
           target: img
           push: false
+          load: true
       - uses: addnab/docker-run-action@v3
         with:
           image: builder
