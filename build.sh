@@ -24,7 +24,6 @@ cp LICENSE out
 cp AUTHORS out
 
 bnp_dep
-ff_dep
 nerd_dep
 
 cp src/kirsch.bdf out

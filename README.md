@@ -11,7 +11,6 @@
 - [Gallery](#gallery)
 - [Installation](#installation)
   - [Web](#web)
-  - [Manually Building](#manually-building)
 - [Design Notes](#design-notes)
   - [Flourishes](#flourishes)
   - [Gaps](#gaps)
@@ -101,12 +100,6 @@ convenience.
   href="https://cdn.jsdelivr.net/npm/kirsch@latest/kirsch.css"
 />
 ```
-
-### Manually Building
-
-Requirements:
-
-- Docker
 
 ## Design Notes
 
