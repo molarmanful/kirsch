@@ -27,10 +27,14 @@ jobs:
         with:
           image: builder
       - uses: shrink/actions-docker-extract@v3
-        id: extract
         with:
           image: builder
-          path: /app/{img,txt}
+          path: /app/img
+          destination: .
+      - uses: shrink/actions-docker-extract@v3
+        with:
+          image: builder
+          path: /app/txt
           destination: .
       - name: push
         uses: stefanzweifel/git-auto-commit-action@v5

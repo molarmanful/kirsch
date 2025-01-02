@@ -37,7 +37,6 @@ jobs:
           image: builder
           options: -e NERD=1 -e XS=2,3
       - uses: shrink/actions-docker-extract@v3
-        id: extract
         with:
           image: builder
           path: /app/out/.
