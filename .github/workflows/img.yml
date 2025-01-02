@@ -30,7 +30,7 @@ jobs:
         id: extract
         with:
           image: builder
-          path: /app/.
+          path: /app/{img,txt}
           destination: .
       - name: push
         uses: stefanzweifel/git-auto-commit-action@v5
