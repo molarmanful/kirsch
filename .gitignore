@@ -2,3 +2,4 @@ deps/
 out/
 test.*
 tmp*
+.direnv
