@@ -2,7 +2,12 @@
 name: img
 on:
   push:
-    paths: [src/**, fns.sh, img.sh, Dockerfile, .github/workflows/img.yml]
+    paths:
+      - src/**
+      - fns.sh
+      - img.sh
+      - Dockerfile
+      - .github/workflows/img.yml
     branches: [master]
 concurrency:
   group: ${{ github.ref }}

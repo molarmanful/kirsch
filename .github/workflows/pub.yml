@@ -2,7 +2,7 @@
 name: pub
 on:
   push:
-    tags: ["*"]
+    tags: ['*']
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
@@ -18,10 +18,10 @@ jobs:
           fetch-depth: 0
       - uses: pnpm/action-setup@v3
         with:
-          version: "*"
+          version: '*'
       - uses: actions/setup-node@v4
         with:
-          node-version: "*"
+          node-version: '*'
           registry-url: https://registry.npmjs.org
           cache: pnpm
       - run: pnpm i
@@ -52,7 +52,6 @@ jobs:
         with:
           file: out/*
           file_glob: true
-
       - name: pub to npm
         run: |
           pnpm version from-git --no-commit-hooks --no-git-tag-version --allow-same-version
