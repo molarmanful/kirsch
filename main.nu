@@ -1,16 +1,17 @@
 def main [] {
   mkdir "out"
   cp "src/kirsch.bdf" "out"
-  mk_ttf
+  mk_vec
   [1 2 3] | each {|x| mk_x "kirsch" $x }
 }
 
-def mk_ttf [] {
+def mk_vec [] {
   bitsnpicas convertbitmap -f "ttf" -o "out/kirsch.ttf" -w 1 -h 1 "src/kirsch.bdf"
   ["si0" "fix" "so1"]
     | each {|x| open $"scripts/($x).py" }
     | str join "\n"
     | fontforge -c $in "out/kirsch.ttf"
+  woff2_compress out/kirsch.ttf
 }
 
 def mk_x [name: string, x: int] {
