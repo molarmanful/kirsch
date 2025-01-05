@@ -1,7 +1,8 @@
-def main [] {
+def main [--nerd] {
   mkdir "out"
   cp "src/kirsch.bdf" "out"
   mk_vec
+  if $nerd { mk_nerd }
   [1 2 3] | each {|x| mk_x "kirsch" $x }
 }
 
@@ -14,7 +15,12 @@ def mk_vec [] {
   woff2_compress out/kirsch.ttf
 }
 
-def mk_x [name: string, x: int] {
+def mk_nerd [] {
+  nerd-font-patcher "out/kirsch.ttf" -out "out" --careful -c
+  nerd-font-patcher "out/kirsch.ttf" -out "out" --careful -c -s
+}
+
+def mk_x [name: string, x = 1] {
   if $x <= 1 {
     mk_rest $name
   } else {

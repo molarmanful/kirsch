@@ -68,7 +68,7 @@
           buildPhase = ''
             runHook preBuild
 
-            nu main.nu
+            nu main.nu --nerd
 
             runHook postBuild
           '';
