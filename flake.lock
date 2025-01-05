@@ -1,8 +1,9 @@
 {
   "nodes": {
-    "bitsnpicas": {
+    "bitsnpicas-src": {
       "flake": false,
       "locked": {
+        "dir": "main/java/BitsNPicas",
         "lastModified": 1733187332,
         "narHash": "sha256-OBFibR/rmWGc0rUxkgUSAa6eQp2yytfkuHqnyj2RWLw=",
         "owner": "kreativekorp",
@@ -11,6 +12,7 @@
         "type": "github"
       },
       "original": {
+        "dir": "main/java/BitsNPicas",
         "owner": "kreativekorp",
         "repo": "bitsnpicas",
         "type": "github"
@@ -30,7 +32,7 @@
     },
     "root": {
       "inputs": {
-        "bitsnpicas": "bitsnpicas",
+        "bitsnpicas-src": "bitsnpicas-src",
         "nixpkgs": "nixpkgs",
         "utils": "utils"
       }
