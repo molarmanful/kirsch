@@ -39,48 +39,63 @@
 
           installPhase = ''
             runHook preInstall
-
-            mkdir -p $out/share/java
+            mkdir -p $out/share/java $out/bin
             cp BitsNPicas.jar $out/share/java
-
-            mkdir -p $out/bin
             makeWrapper ${pkgs.temurin-jre-bin}/bin/java $out/bin/bitsnpicas \
               --add-flags "-jar $out/share/java/BitsNPicas.jar"
-
             runHook postInstall
           '';
         };
 
-        kirsch = pkgs.stdenvNoCC.mkDerivation {
-          name = "kirsch";
-          src = ./.;
+        f_kirsch =
+          {
+            nerd ? false,
+          }:
+          pkgs.stdenvNoCC.mkDerivation {
+            name = "kirsch";
+            src = ./.;
 
-          nativeBuildInputs = with pkgs; [
+            nativeBuildInputs = with pkgs; [
+              bitsnpicas
+              fontforge
+              bdfresize
+              xorg.bdftopcf
+              woff2
+              nerd-font-patcher
+              nushell
+            ];
+
+            buildPhase = ''
+              runHook preBuild
+              rm -rf out
+              mkdir -p out
+              nu main.nu out ${if nerd then "--nerd" else ""}
+              runHook postBuild
+            '';
+
+            installPhase = ''
+              runHook preInstall
+              cp -r out/. $out
+              runHook postInstall
+            '';
+          };
+
+        kirsch-img = pkgs.writeShellApplication {
+          name = "kirsch-img";
+
+          runtimeInputs = with pkgs; [
             bitsnpicas
-            fontforge
-            bdfresize
-            xorg.bdftopcf
-            woff2
-            nerd-font-patcher
+            imagemagick
             nushell
           ];
 
-          buildPhase = ''
-            runHook preBuild
-
-            nu main.nu --nerd
-
-            runHook postBuild
-          '';
-
-          installPhase = ''
-            runHook preInstall
-
-            cp -r out/. $out
-
-            runHook postInstall
+          text = ''
+            nu img.nu
           '';
         };
+
+        kirsch = f_kirsch { };
+        kirsch-nerd = f_kirsch { nerd = true; };
 
       in
       {
@@ -102,7 +117,12 @@
         };
 
         packages = {
-          inherit bitsnpicas kirsch;
+          inherit
+            bitsnpicas
+            kirsch
+            kirsch-nerd
+            kirsch-img
+            ;
           default = kirsch;
         };
       }

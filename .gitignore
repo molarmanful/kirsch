@@ -2,5 +2,5 @@ deps/
 out/
 test.*
 tmp*
-.direnv
-result
+.direnv/
+result/
