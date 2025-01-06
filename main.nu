@@ -1,4 +1,4 @@
-def main [src: path, out: path, --nerd] {
+def main [src: path, out: path, --nerd, --release] {
   let name = $src | path parse | get stem
   let ttf = $out | path join $'($name).ttf'
 
@@ -6,6 +6,8 @@ def main [src: path, out: path, --nerd] {
   mk_vec $src $ttf
   if $nerd { mk_nerd $ttf $out }
   [1 2 3] | each { mk_x $src $name $in }
+
+  if $release { mk_zip $out }
 }
 
 def mk_vec [src: path, ttf: path] {
@@ -38,4 +40,11 @@ def mk_rest [src: path, name: string] {
     | str join "\n"
     | fontforge -c $in $src $'out/($name).' $name
   bdftopcf -o $'out/($name).pcf' $src
+}
+
+def mk_zip [$out: path] {
+  let tag = git describe --tags --abbrev=0
+
+  cp ['README.md' 'LICENSE' 'AUTHORS'] $out
+  ^zip -r $'result/kirsch_($tag).zip' ($out | path join '*')
 }

@@ -27,13 +27,7 @@ jobs:
       - run: pnpm i
       - uses: docker/setup-buildx-action@v3
       - uses: nixbuild/nix-quick-install-action@v29
-      - run: nix build .#kirsch-nerd
-      - name: zip
-        run: |
-          cp README.md result
-          cp LICENSE result
-          cp AUTHORS result
-          zip -r "result/kirsch_${{ github.ref_name }}.zip" result/*
+      - run: nix build .#kirsch-release
       - name: release
         uses: svenstaro/upload-release-action@2.7.0
         with:

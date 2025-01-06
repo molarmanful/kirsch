@@ -51,26 +51,40 @@
         f_kirsch =
           {
             nerd ? false,
+            release ? false,
           }:
           pkgs.stdenvNoCC.mkDerivation {
             name = "kirsch";
             src = ./.;
 
-            nativeBuildInputs = with pkgs; [
-              bitsnpicas
-              fontforge
-              bdfresize
-              xorg.bdftopcf
-              woff2
-              nerd-font-patcher
-              nushell
-            ];
+            nativeBuildInputs =
+              with pkgs;
+              [
+                bitsnpicas
+                fontforge
+                bdfresize
+                xorg.bdftopcf
+                woff2
+                nushell
+              ]
+              ++ (if nerd then [ nerd-font-patcher ] else [ ])
+              ++ (
+                if release then
+                  [
+                    zip
+                    pnpm
+                  ]
+                else
+                  [ ]
+              );
 
             buildPhase = ''
               runHook preBuild
               rm -rf out
               mkdir -p out
-              nu main.nu src/kirsch.bdf out ${if nerd then "--nerd" else ""}
+              nu main.nu src/kirsch.bdf out \
+                ${if nerd then "--nerd" else ""} \
+                ${if release then "--release" else ""}
               runHook postBuild
             '';
 
@@ -97,6 +111,10 @@
 
         kirsch = f_kirsch { };
         kirsch-nerd = f_kirsch { nerd = true; };
+        kirsch-release = f_kirsch {
+          nerd = true;
+          release = true;
+        };
 
       in
       {
@@ -121,6 +139,7 @@
             bitsnpicas
             kirsch
             kirsch-nerd
+            kirsch-release
             kirsch-img
             ;
           default = kirsch;
