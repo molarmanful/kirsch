@@ -2,6 +2,7 @@
   description = "A versatile bitmap font with an organic flair";
 
   inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     utils.url = "github:numtide/flake-utils";
     bitsnpicas-src = {
       url = "github:kreativekorp/bitsnpicas?dir=main/java/BitsNPicas";
@@ -102,7 +103,6 @@
 
         devShell = pkgs.mkShell {
           packages = with pkgs; [
-            bash-language-server # FIXME: remove
             nil
             nixd
             nixfmt-rfc-style
