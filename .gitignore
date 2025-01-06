@@ -3,4 +3,4 @@ out/
 test.*
 tmp*
 .direnv/
-result/
+result

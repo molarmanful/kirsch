@@ -69,7 +69,7 @@
               runHook preBuild
               rm -rf out
               mkdir -p out
-              nu main.nu out ${if nerd then "--nerd" else ""}
+              nu main.nu src/kirsch.bdf out ${if nerd then "--nerd" else ""}
               runHook postBuild
             '';
 
