@@ -16,26 +16,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: docker/setup-buildx-action@v3
-      - uses: docker/build-push-action@v6
-        with:
-          tags: builder
-          target: img
-          push: false
-          load: true
-      - uses: addnab/docker-run-action@v3
-        with:
-          image: builder
-      - uses: shrink/actions-docker-extract@v3
-        with:
-          image: builder
-          path: /app/img
-          destination: .
-      - uses: shrink/actions-docker-extract@v3
-        with:
-          image: builder
-          path: /app/txt
-          destination: .
+      - uses: nixbuild/nix-quick-install-action@v29
+      - run: nix run .#kirsch-img
       - name: push
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
