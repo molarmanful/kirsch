@@ -10,6 +10,8 @@ def main [src: path, -x: int] {
   | enumerate | flatten
   | scale $x
   | get 'res'
+  | each { $in.k + ' ' + $in.v }
+  | str join "\n"
 }
 
 def scale [x: int]: table -> record {
