@@ -14,10 +14,12 @@ def main [src: path, out: path, --nerd, --release] {
 
 def mk_vec [src: path, ttf: path] {
   bitsnpicas convertbitmap -f 'ttf' -o $ttf $src
+
   [si0 fix so1]
-    | each { open $'scripts/($in).py' }
-    | str join "\n"
-    | fontforge -c $in $ttf
+  | each { open $'scripts/($in).py' }
+  | str join "\n"
+  | fontforge -c $in $ttf
+
   woff2_compress $ttf
 }
 
@@ -38,9 +40,10 @@ def mk_x [src: path, name: string, x = 1] {
 
 def mk_rest [src: path, name: string] {
   [si0 si1 fix so0]
-    | each { open $'scripts/($in).py' }
-    | str join "\n"
-    | fontforge -c $in $src $'out/($name).' $name
+  | each { open $'scripts/($in).py' }
+  | str join "\n"
+  | fontforge -c $in $src $'out/($name).' $name
+
   bdftopcf -o $'out/($name).pcf' $src
 }
 
