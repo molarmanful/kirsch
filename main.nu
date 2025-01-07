@@ -1,3 +1,5 @@
+use scripts/bited-scale.nu
+
 def main [src: path, out: path, --nerd, --release] {
   let name = $src | path parse | get stem
   let ttf = $out | path join $'($name).ttf'
@@ -29,7 +31,7 @@ def mk_x [src: path, name: string, x = 1] {
     mk_rest $src $name
   } else {
     let nm = $'($name)($x)x'
-    bdfresize -f $x $src | save $'out/($nm).bdf'
+    bited-scale -x $x $src | save $'out/($nm).bdf'
     mk_rest $src $nm
   }
 }
@@ -42,7 +44,7 @@ def mk_rest [src: path, name: string] {
   bdftopcf -o $'out/($name).pcf' $src
 }
 
-def mk_zip [$out: path] {
+def mk_zip [out: path] {
   let tag = git describe --tags --abbrev=0
 
   cp ['README.md' 'LICENSE' 'AUTHORS'] $out

@@ -11,7 +11,7 @@ def main [--accents] {
   gen_imgs $src
 }
 
-def get_codes [src: path] {
+def get_codes [src: path]: nothing -> list<int> {
   open $src
     | lines
     | find -r '^\s*ENCODING\s+[^-]'
@@ -28,7 +28,7 @@ def txt_correct [] {
       }
 }
 
-def gen_chars [accents: bool] {
+def gen_chars [accents: bool]: list<int> -> string {
   $in
     | each { char -i $in }
     | if $accents { str replace -r '(\p{M})' ' $1' } else { }
@@ -37,7 +37,7 @@ def gen_chars [accents: bool] {
     | str join "\n"
 }
 
-def gen_map [accents: bool] {
+def gen_map [accents: bool]: list<int> -> string {
   $in
     | group-by { $in // 16 }
     | transpose k v
@@ -63,7 +63,7 @@ def gen_map [accents: bool] {
     | str join "\n"
 }
 
-def gen_samples [] {
+def gen_samples []: nothing -> string {
   [prog eng multi scala clojure go svelte apl engalt pretty math box braille]
     | each { open $'txt/($in).txt' }
     | str join "\n"
@@ -81,7 +81,7 @@ def gen_imgs [$src] {
   ls 'txt'
     | where type == file
     | get 'name'
-    | each {
+    | par-each {
         let stem = $in | path parse | get stem
         sh scripts/magick.sh $ttf 16 $in $stem '#1F0318' '#86CB92'
         print $' + ($stem)'

@@ -62,7 +62,6 @@
               [
                 bitsnpicas
                 fontforge
-                bdfresize
                 xorg.bdftopcf
                 woff2
                 nushell
@@ -109,6 +108,18 @@
           '';
         };
 
+        bited-scale = pkgs.writeShellApplication {
+          name = "bited-scale";
+
+          runtimeInputs = with pkgs; [
+            nushell
+          ];
+
+          text = ''
+            nu scripts/bited-scale.nu "$@"
+          '';
+        };
+
         kirsch = f_kirsch { };
         kirsch-nerd = f_kirsch { nerd = true; };
         kirsch-release = f_kirsch {
@@ -141,6 +152,7 @@
             kirsch-nerd
             kirsch-release
             kirsch-img
+            bited-scale
             ;
           default = kirsch;
         };
