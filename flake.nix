@@ -2,7 +2,7 @@
   description = "A versatile bitmap font with an organic flair";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     utils.url = "github:numtide/flake-utils";
     bited-utils.url = "github:molarmanful/bited-utils";
   };
@@ -17,7 +17,7 @@
     utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = import nixpkgs { inherit system; };
 
         f_kirsch =
           {
@@ -28,15 +28,15 @@
             name = "kirsch";
             src = ./.;
 
-            nativeBuildInputs = [ bited-utils ];
+            nativeBuildInputs = [ bited-utils.packages.${system}.bited-build ];
 
             buildPhase = ''
               runHook preBuild
               rm -rf out
               mkdir -p out
               bited-build src/kirsch.bdf out \
-                ${if nerd then "--nerd" else ""} \
-                ${if release then "--release" else ""}
+                ${pkgs.lib.optionalString nerd "--nerd"} \
+                ${pkgs.lib.optionalString release "--release"}
               runHook postBuild
             '';
 
@@ -50,10 +50,10 @@
         kirsch-img = pkgs.writeShellApplication {
           name = "kirsch-img";
 
-          runtimeInputs = [ bited-utils ];
+          runtimeInputs = [ bited-utils.packages.${system}.bited-img ];
 
           text = ''
-            bited-img src/bited.bdf
+            bited-img src/kirsch.bdf
           '';
         };
 
