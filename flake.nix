@@ -4,49 +4,20 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     utils.url = "github:numtide/flake-utils";
-    bitsnpicas-src = {
-      url = "github:kreativekorp/bitsnpicas?dir=main/java/BitsNPicas";
-      flake = false;
-    };
+    bited-utils.url = "github:molarmanful/bited-utils";
   };
 
   outputs =
     {
-      self,
       nixpkgs,
       utils,
-      bitsnpicas-src,
+      bited-utils,
       ...
     }:
     utils.lib.eachDefaultSystem (
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-
-        bitsnpicas = pkgs.stdenvNoCC.mkDerivation {
-          name = "bitsnpicas";
-          src = bitsnpicas-src;
-
-          nativeBuildInputs = with pkgs; [
-            temurin-bin
-            makeWrapper
-          ];
-
-          preBuild = ''
-            cd main/java/BitsNPicas
-          '';
-
-          buildFlags = "BitsNPicas.jar";
-
-          installPhase = ''
-            runHook preInstall
-            mkdir -p $out/share/java $out/bin
-            cp BitsNPicas.jar $out/share/java
-            makeWrapper ${pkgs.temurin-jre-bin}/bin/java $out/bin/bitsnpicas \
-              --add-flags "-jar $out/share/java/BitsNPicas.jar"
-            runHook postInstall
-          '';
-        };
 
         f_kirsch =
           {
@@ -57,31 +28,13 @@
             name = "kirsch";
             src = ./.;
 
-            nativeBuildInputs =
-              with pkgs;
-              [
-                bitsnpicas
-                fontforge
-                xorg.bdftopcf
-                woff2
-                nushell
-              ]
-              ++ (if nerd then [ nerd-font-patcher ] else [ ])
-              ++ (
-                if release then
-                  [
-                    zip
-                    pnpm
-                  ]
-                else
-                  [ ]
-              );
+            nativeBuildInputs = [ bited-utils ];
 
             buildPhase = ''
               runHook preBuild
               rm -rf out
               mkdir -p out
-              nu main.nu src/kirsch.bdf out \
+              bited-build src/kirsch.bdf out \
                 ${if nerd then "--nerd" else ""} \
                 ${if release then "--release" else ""}
               runHook postBuild
@@ -97,26 +50,10 @@
         kirsch-img = pkgs.writeShellApplication {
           name = "kirsch-img";
 
-          runtimeInputs = with pkgs; [
-            bitsnpicas
-            imagemagick
-            nushell
-          ];
+          runtimeInputs = [ bited-utils ];
 
           text = ''
-            nu img.nu
-          '';
-        };
-
-        bited-scale = pkgs.writeShellApplication {
-          name = "bited-scale";
-
-          runtimeInputs = with pkgs; [
-            nushell
-          ];
-
-          text = ''
-            nu scripts/bited-scale.nu "$@"
+            bited-img src/bited.bdf
           '';
         };
 
@@ -147,12 +84,10 @@
 
         packages = {
           inherit
-            bitsnpicas
             kirsch
             kirsch-nerd
             kirsch-release
             kirsch-img
-            bited-scale
             ;
           default = kirsch;
         };
