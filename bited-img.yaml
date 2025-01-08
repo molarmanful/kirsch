@@ -1,0 +1,17 @@
+---
+samples:
+  - prog
+  - eng
+  - multi
+  - scala
+  - clojure
+  - go
+  - svelte
+  - apl
+  - engalt
+  - pretty
+  - math
+  - box
+  - braille
+bg: '#1F0318'
+fg: '#86CB92'
