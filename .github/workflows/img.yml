@@ -2,7 +2,7 @@
 name: img
 on:
   push:
-    paths: [src/**, img.nu, flake.nix, .github/workflows/img.yml]
+    paths: [src/**, img.nu, flake.nix, flake.lock, .github/workflows/img.yml]
     branches: [master]
 concurrency:
   group: ${{ github.ref }}
