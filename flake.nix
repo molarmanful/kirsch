@@ -33,7 +33,6 @@
             buildPhase = ''
               runHook preBuild
               rm -rf out
-              mkdir -p out
               bited-build src/kirsch.bdf out \
                 ${pkgs.lib.optionalString nerd "--nerd"} \
                 ${pkgs.lib.optionalString release "--release"}
