@@ -9,62 +9,61 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       utils,
       bited-utils,
       ...
     }:
+
+    let
+      pname = "kirsch";
+      version = self.shortRev or self.dirtyShortRev;
+    in
+
     utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [
+            (final: prev: {
+              bited-utils = bited-utils.packages.${system};
+            })
+          ];
+        };
+        font_pkgs = {
 
-        f_kirsch =
-          {
-            nerd ? false,
-            release ? false,
-          }:
-          pkgs.stdenvNoCC.mkDerivation {
-            name = "kirsch";
-            src = ./.;
-
-            nativeBuildInputs = [ bited-utils.packages.${system}.bited-build ];
-
-            buildPhase = ''
-              runHook preBuild
-              rm -rf out
-              bited-build src/kirsch.bdf out \
-                ${pkgs.lib.optionalString nerd "--nerd"} \
-                ${pkgs.lib.optionalString release "--release"}
-              runHook postBuild
-            '';
-
-            installPhase = ''
-              runHook preInstall
-              cp -r out/. $out
-              runHook postInstall
-            '';
+          ${pname} = pkgs.callPackage ./. {
+            inherit pname version;
           };
 
-        kirsch-img = pkgs.writeShellApplication {
-          name = "kirsch-img";
+          "${pname}-nerd" = pkgs.callPackage ./. {
+            inherit version;
+            pname = "${pname}-nerd";
+            nerd = true;
+          };
 
-          runtimeInputs = [ bited-utils.packages.${system}.bited-img ];
+          "${pname}-release" = pkgs.callPackage ./. {
+            inherit version;
+            pname = "${pname}-nerd";
+            nerd = true;
+            release = true;
+          };
 
-          text = ''
-            bited-img src/kirsch.bdf
-          '';
+          "${pname}-img" = pkgs.writeShellApplication {
+            inherit version;
+            pname = "${pname}-img";
+            text = "${bited-utils.bited-img}/bin/bited-img src/${pname}.bdf";
+          };
+
         };
-
-        kirsch = f_kirsch { };
-        kirsch-nerd = f_kirsch { nerd = true; };
-        kirsch-release = f_kirsch {
-          nerd = true;
-          release = true;
-        };
-
       in
       {
+
+        packages = font_pkgs // {
+          default = font_pkgs.${pname};
+        };
 
         devShell = pkgs.mkShell {
           packages = with pkgs; [
@@ -80,15 +79,6 @@
           ];
         };
 
-        packages = {
-          inherit
-            kirsch
-            kirsch-nerd
-            kirsch-release
-            kirsch-img
-            ;
-          default = kirsch;
-        };
       }
     );
 }
