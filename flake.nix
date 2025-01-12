@@ -73,7 +73,6 @@
             nixfmt-rfc-style
             statix
             deadnix
-            nushell
             marksman
             markdownlint-cli
             actionlint
