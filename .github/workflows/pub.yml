@@ -27,6 +27,7 @@ jobs:
       - run: pnpm i
       - uses: docker/setup-buildx-action@v3
       - uses: nixbuild/nix-quick-install-action@v29
+      - uses: DeterminateSystems/magic-nix-cache-action@main
       - run: nix build .#kirsch-release
       - name: release
         uses: svenstaro/upload-release-action@2.7.0
