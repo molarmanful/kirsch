@@ -40,3 +40,8 @@ jobs:
           pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: echo -n ${{ github.ref_name }} > VERSION
+      - name: push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: VERSION

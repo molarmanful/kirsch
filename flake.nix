@@ -9,7 +9,6 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       utils,
       bited-utils,
@@ -17,8 +16,9 @@
     }:
 
     let
-      pname = "kirsch";
-      version = self.shortRev or self.dirtyShortRev;
+      name = "kirsch";
+      version = builtins.readFile ./VERSION;
+      bdf = ./src/kirsch.bdf;
     in
 
     utils.lib.eachDefaultSystem (
@@ -26,43 +26,28 @@
       let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [
-            (final: prev: {
-              bited-utils = bited-utils.packages.${system};
-            })
-          ];
+          overlays = [ bited-utils.overlay ];
         };
-        font_pkgs = {
-
-          ${pname} = pkgs.callPackage ./. {
-            inherit pname version;
-          };
-
-          "${pname}-nerd" = pkgs.callPackage ./. {
-            inherit version;
-            pname = "${pname}-nerd";
-            nerd = true;
-          };
-
-          "${pname}-release" = pkgs.callPackage ./. {
-            inherit version;
-            pname = "${pname}-nerd";
-            nerd = true;
-            release = true;
-          };
-
-          "${pname}-img" = pkgs.writeShellApplication {
-            inherit version;
-            pname = "${pname}-img";
-            text = "${bited-utils.bited-img}/bin/bited-img src/${pname}.bdf";
-          };
-
-        };
+        build = o: pkgs.callPackage ./. ({ inherit version bdf; } // o);
       in
       {
 
-        packages = font_pkgs // {
-          default = font_pkgs.${pname};
+        packages = rec {
+          kirsch = build { pname = name; };
+          kirsch-nerd = build {
+            pname = "${name}-nerd";
+            nerd = true;
+          };
+          kirsch-release = build {
+            pname = "${name}-release";
+            nerd = true;
+            release = true;
+          };
+          kirsch-img = pkgs.callPackage ./img.nix {
+            inherit bdf;
+            name = "${name}-img";
+          };
+          default = kirsch;
         };
 
         devShell = pkgs.mkShell {

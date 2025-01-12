@@ -1,11 +1,14 @@
 {
-  pname,
+  pname ? "kirsch",
   version,
-  lib,
-  stdenvNoCC,
-  bited-utils,
+  bdf,
   nerd ? false,
   release ? false,
+
+  lib,
+  stdenvNoCC,
+  bited-build,
+  ...
 }:
 
 stdenvNoCC.mkDerivation {
@@ -15,7 +18,7 @@ stdenvNoCC.mkDerivation {
   buildPhase = ''
     runHook preBuild
     rm -rf out
-    ${bited-utils.bited-build}/bin/bited-build src/${pname}.bdf out \
+    ${bited-build}/bin/bited-build ${bdf} out \
       ${lib.optionalString nerd "--nerd"} \
       ${lib.optionalString release "--release"}
     runHook postBuild
