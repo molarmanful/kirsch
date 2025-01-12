@@ -2,49 +2,30 @@
   "nodes": {
     "bited-utils": {
       "inputs": {
-        "bitsnpicas-src": "bitsnpicas-src",
         "nixpkgs": "nixpkgs",
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1736372178,
-        "narHash": "sha256-awh73RImNa3Be6+Pd7Azq153ddYNSMdtrYEBc6ht+/M=",
+        "lastModified": 1736671860,
+        "narHash": "sha256-5Iv+MyZc6SriKMwyBN831nnP5UJdSWWPh2yD+oIDrPQ=",
         "owner": "molarmanful",
         "repo": "bited-utils",
-        "rev": "ef16004f80650c659217906a3f2f7a2fa0220dbc",
+        "rev": "852e0056978611f74c181d04b3d73c413dd7800a",
         "type": "github"
       },
       "original": {
         "owner": "molarmanful",
         "repo": "bited-utils",
-        "type": "github"
-      }
-    },
-    "bitsnpicas-src": {
-      "flake": false,
-      "locked": {
-        "dir": "main/java/BitsNPicas",
-        "lastModified": 1733187332,
-        "narHash": "sha256-OBFibR/rmWGc0rUxkgUSAa6eQp2yytfkuHqnyj2RWLw=",
-        "owner": "kreativekorp",
-        "repo": "bitsnpicas",
-        "rev": "ee1627fa7a8b40754aeff13a479305dd0a4df3bd",
-        "type": "github"
-      },
-      "original": {
-        "dir": "main/java/BitsNPicas",
-        "owner": "kreativekorp",
-        "repo": "bitsnpicas",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1736012469,
-        "narHash": "sha256-/qlNWm/IEVVH7GfgAIyP6EsVZI6zjAx1cV5zNyrs+rI=",
+        "lastModified": 1736344531,
+        "narHash": "sha256-8YVQ9ZbSfuUk2bUf2KRj60NRraLPKPS0Q4QFTbc+c2c=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8f3e1f807051e32d8c95cd12b9b421623850a34d",
+        "rev": "bffc22eb12172e6db3c5dde9e3e5628f8e3e7912",
         "type": "github"
       },
       "original": {
@@ -55,11 +36,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1736012469,
-        "narHash": "sha256-/qlNWm/IEVVH7GfgAIyP6EsVZI6zjAx1cV5zNyrs+rI=",
+        "lastModified": 1736344531,
+        "narHash": "sha256-8YVQ9ZbSfuUk2bUf2KRj60NRraLPKPS0Q4QFTbc+c2c=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8f3e1f807051e32d8c95cd12b9b421623850a34d",
+        "rev": "bffc22eb12172e6db3c5dde9e3e5628f8e3e7912",
         "type": "github"
       },
       "original": {
