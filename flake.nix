@@ -18,7 +18,7 @@
     let
       name = "kirsch";
       version = builtins.readFile ./VERSION;
-      bdf = ./src/kirsch.bdf;
+      bdf = "src/kirsch.bdf";
     in
 
     utils.lib.eachDefaultSystem (
