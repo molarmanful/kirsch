@@ -47,13 +47,10 @@
     // utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [
-            bited-utils.overlay
-            self.overlay
-          ];
-        };
+        pkgs = nixpkgs.legacyPackages.${system}.appendOverlays [
+          bited-utils.overlay
+          self.overlay
+        ];
       in
       {
 
