@@ -77,7 +77,7 @@
             marksman
             markdownlint-cli
             actionlint
-            yamlfix
+            taplo
           ];
         };
 
