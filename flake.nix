@@ -12,7 +12,6 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       utils,
       bited-utils,
@@ -24,48 +23,35 @@
       version = builtins.readFile ./VERSION;
     in
 
-    {
-      overlays.default =
-        final: prev:
-        let
-          build = o: final.callPackage ./. ({ inherit version; } // o);
-        in
-        {
-          kirsch = build { pname = name; };
-          kirsch-nerd = build {
-            pname = "${name}-nerd";
-            nerd = true;
-          };
-          kirsch-release = build {
-            pname = "${name}-release";
-            nerd = true;
-            release = true;
-          };
-          kirsch-img = final.callPackage ./img.nix {
-            name = "${name}-img";
-          };
-        };
-    }
-
-    // utils.lib.eachDefaultSystem (
+    utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = nixpkgs.legacyPackages.${system}.appendOverlays [
-          bited-utils.overlays.default
-          self.overlays.default
-        ];
+        pkgs = nixpkgs.legacyPackages.${system};
+        P = bited-utils.packages.${system};
       in
       {
 
-        packages = {
-          inherit (pkgs)
-            kirsch
-            kirsch-nerd
-            kirsch-release
-            kirsch-img
-            ;
-          default = pkgs.kirsch;
-        };
+        packages =
+          let
+            build = o: pkgs.callPackage ./. ({ inherit version P; } // o);
+          in
+          rec {
+            kirsch = build { pname = name; };
+            kirsch-nerd = build {
+              pname = "${name}-nerd";
+              nerd = true;
+            };
+            kirsch-release = build {
+              pname = "${name}-release";
+              nerd = true;
+              release = true;
+            };
+            kirsch-img = pkgs.callPackage ./img.nix {
+              inherit P;
+              name = "${name}-img";
+            };
+            default = kirsch;
+          };
 
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
