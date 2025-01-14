@@ -36,13 +36,13 @@ jobs:
         with:
           file: result/share/fonts/*
           file_glob: true
+      - name: push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: VERSION
       - name: pub to npm
         run: |
           pnpm version ${{ github.ref_name }} --no-commit-hooks --no-git-tag-version --allow-same-version
           pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: push
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          file_pattern: VERSION
