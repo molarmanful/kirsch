@@ -6,11 +6,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1736827974,
-        "narHash": "sha256-bADXwBoQLXhdenSc9uJZ9pYIirqGu00jl3/lzWlp/UE=",
+        "lastModified": 1736830842,
+        "narHash": "sha256-8Q9oK8loPsW+5ukt3KpggZlLYiOLjMUi66e281n88Q8=",
         "owner": "molarmanful",
         "repo": "bited-utils",
-        "rev": "c1eb18f9e70e542dc72eaac368b29ae2f276a1ee",
+        "rev": "1a2b9ed572045add38f8ad71b476bf5c7aa40306",
         "type": "github"
       },
       "original": {

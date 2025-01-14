@@ -1,8 +1,9 @@
+[kirsch]
 font_size = 16
 bg = "#1F0318"
 fg = "#86CB92"
 
-[gens]
+[kirsch.gens]
 sample = [
   "prog",
   "eng",
