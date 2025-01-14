@@ -1,7 +1,7 @@
 {
   pname ? "kirsch",
   version,
-  bdf,
+  cfg ? "",
   nerd ? false,
   release ? false,
 
@@ -18,7 +18,7 @@ stdenvNoCC.mkDerivation {
   buildPhase = ''
     runHook preBuild
     rm -rf out
-    ${bited-build}/bin/bited-build ${bdf} out \
+    ${bited-build}/bin/bited-build ${cfg} out \
       ${lib.optionalString nerd "--nerd"} \
       ${lib.optionalString release "--release"}
     runHook postBuild

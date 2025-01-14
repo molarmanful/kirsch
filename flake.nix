@@ -9,6 +9,7 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       utils,
       bited-utils,
@@ -18,21 +19,15 @@
     let
       name = "kirsch";
       version = builtins.readFile ./VERSION;
-      bdf = "src/kirsch.bdf";
     in
 
-    utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [ bited-utils.overlay ];
-        };
-        build = o: pkgs.callPackage ./. ({ inherit version bdf; } // o);
-      in
-      {
-
-        packages = rec {
+    {
+      overlays =
+        final: prev:
+        let
+          build = o: final.callPackage ./. ({ inherit version; } // o);
+        in
+        {
           kirsch = build { pname = name; };
           kirsch-nerd = build {
             pname = "${name}-nerd";
@@ -43,11 +38,33 @@
             nerd = true;
             release = true;
           };
-          kirsch-img = pkgs.callPackage ./img.nix {
-            inherit bdf;
+          kirsch-img = final.callPackage ./img.nix {
             name = "${name}-img";
           };
-          default = kirsch;
+        };
+    }
+
+    // utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [
+            bited-utils.overlay
+            self.overlay
+          ];
+        };
+      in
+      {
+
+        packages = {
+          inherit (pkgs)
+            kirsch
+            kirsch-nerd
+            kirsch-release
+            kirsch-img
+            ;
+          default = pkgs.kirsch;
         };
 
         devShell = pkgs.mkShell {

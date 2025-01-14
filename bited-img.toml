@@ -1,0 +1,21 @@
+font_size = 16
+bg = "#1F0318"
+fg = "#86CB92"
+
+[gens]
+sample = [
+  "prog",
+  "eng",
+  "multi",
+  "scala",
+  "clojure",
+  "go",
+  "svelte",
+  "apl",
+  "engalt",
+  "pretty",
+  "math",
+  "box",
+  "braille"
+]
+all = [ "header", "sample" ]
