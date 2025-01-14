@@ -4,7 +4,10 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     utils.url = "github:numtide/flake-utils";
-    bited-utils.url = "github:molarmanful/bited-utils";
+    bited-utils = {
+      url = "github:molarmanful/bited-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -22,7 +25,7 @@
     in
 
     {
-      overlay =
+      overlays.default =
         final: prev:
         let
           build = o: final.callPackage ./. ({ inherit version; } // o);
@@ -48,8 +51,8 @@
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system}.appendOverlays [
-          bited-utils.overlay
-          self.overlay
+          bited-utils.overlays.default
+          self.overlays.default
         ];
       in
       {
@@ -64,7 +67,7 @@
           default = pkgs.kirsch;
         };
 
-        devShell = pkgs.mkShell {
+        devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             nil
             nixd
