@@ -22,7 +22,7 @@
     in
 
     {
-      overlays =
+      overlay =
         final: prev:
         let
           build = o: final.callPackage ./. ({ inherit version; } // o);
