@@ -38,7 +38,7 @@ jobs:
           file_glob: true
       - name: pub to npm
         run: |
-          pnpm version from-git --no-commit-hooks --no-git-tag-version --allow-same-version
+          pnpm version ${{ github.ref_name }} --no-commit-hooks --no-git-tag-version --allow-same-version
           pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
