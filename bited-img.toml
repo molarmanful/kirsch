@@ -17,6 +17,6 @@ sample = [
   "pretty",
   "math",
   "box",
-  "braille"
+  "braille",
 ]
-all = [ "header", "sample" ]
+all = ["header", "sample"]
