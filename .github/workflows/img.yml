@@ -3,8 +3,8 @@ name: img
 on:
   push:
     paths:
+      - bited-img.toml
       - src/**
-      - img.nu
       - flake.nix
       - flake.lock
       - .github/workflows/img.yml
