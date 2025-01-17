@@ -1,7 +1,29 @@
 [kirsch]
 font_size = 16
-bg = "#1F0318"
-fg = "#86CB92"
+
+[kirsch.clrs]
+bg = "#140011"
+fg = "#e6cfd6"
+
+base = [
+  "#330a1f",
+  "#ff738a",
+  "#73e673",
+  "#ff9966",
+  "#8cc6ff",
+  "#c291f2",
+  "#73e6e6",
+  "#668080",
+
+  "#4d1339",
+  "#ff738a",
+  "#73e673",
+  "#f2de79",
+  "#8cc6ff",
+  "#c291f2",
+  "#73e6e6",
+  "#b8e6de",
+]
 
 [kirsch.gens]
 sample = [
