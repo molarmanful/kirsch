@@ -155,4 +155,4 @@ checking out.
 
 ## Licensing
 
-Made with ♥ by Ben Pang. Released under the OFL-1.1 License.
+Made with ♥ by [the kirsch Project Authors](AUTHORS). Released under the OFL-1.1 License.
