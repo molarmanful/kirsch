@@ -29,28 +29,28 @@
         pkgs = nixpkgs.legacyPackages.${system};
         P = bited-utils.packages.${system};
       in
-      {
+      rec {
 
         packages =
           let
             build = o: pkgs.callPackage ./. ({ inherit version P; } // o);
           in
-          rec {
-            kirsch = build { pname = name; };
-            kirsch-nerd = build {
+          {
+            ${name} = build { pname = name; };
+            "${name}-nerd" = build {
               pname = "${name}-nerd";
               nerd = true;
             };
-            kirsch-release = build {
+            "${name}-release" = build {
               pname = "${name}-release";
               nerd = true;
               release = true;
             };
-            kirsch-img = pkgs.callPackage ./img.nix {
+            "${name}-img" = pkgs.callPackage ./img.nix {
               inherit P;
               name = "${name}-img";
             };
-            default = kirsch;
+            default = packages.${name};
           };
 
         devShells.default = pkgs.mkShell {
