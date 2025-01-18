@@ -5,8 +5,10 @@ on:
     paths:
       - bited-img.toml
       - src/**
+      - txt/**
       - flake.nix
       - flake.lock
+      - img.nix
       - .github/workflows/img.yml
     branches: [master]
 concurrency:
