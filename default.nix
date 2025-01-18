@@ -1,5 +1,5 @@
 {
-  pname ? "kirsch",
+  pname,
   version,
   cfg ? "",
   nerd ? false,
