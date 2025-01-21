@@ -37,6 +37,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           file_pattern: VERSION
+          commit_message: bump version to ${{ github.ref_name }}
       - name: pub to npm
         run: |
           pnpm version ${{ github.ref_name }} --no-commit-hooks --no-git-tag-version --allow-same-version

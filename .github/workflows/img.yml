@@ -30,3 +30,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           file_pattern: img txt
+          commit_message: auto-generate images
