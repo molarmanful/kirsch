@@ -15,9 +15,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: master
-          persist-credentials: false
-          fetch-depth: 0
-      - run: echo -n ${{ github.ref_name }} > VERSION
       - uses: pnpm/action-setup@v3
         with:
           version: '*'
@@ -29,6 +26,7 @@ jobs:
       - run: pnpm i
       - uses: nixbuild/nix-quick-install-action@v29
       - uses: DeterminateSystems/magic-nix-cache-action@main
+      - run: echo -n ${{ github.ref_name }} > VERSION
       - run: nix build .#kirsch-release
       - name: release
         uses: svenstaro/upload-release-action@2.7.0

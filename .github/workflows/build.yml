@@ -1,0 +1,43 @@
+---
+name: build
+on:
+  push:
+    branches: [main]
+    paths:
+      - bited-build.toml
+      - src/**
+      - flake.nix
+      - flake.lock
+      - default.nix
+      - .github/workflows/build.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - bited-build.toml
+      - src/**
+      - flake.nix
+      - flake.lock
+      - default.nix
+      - .github/workflows/build.yml
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: nixbuild/nix-quick-install-action@v29
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - run: nix build .#kirsch
+      - name: artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: kirsch
+          path: result/share/fonts

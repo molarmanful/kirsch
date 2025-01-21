@@ -8,6 +8,7 @@
 
   lib,
   stdenvNoCC,
+  zip,
   ...
 }:
 
@@ -19,8 +20,7 @@ stdenvNoCC.mkDerivation {
     runHook preBuild
     rm -rf out
     ${P.bited-build}/bin/bited-build ${cfg} \
-      ${lib.optionalString nerd "--nerd"} \
-      ${lib.optionalString release "--release"}
+      ${lib.optionalString nerd "--nerd"}
     runHook postBuild
   '';
 
@@ -28,6 +28,9 @@ stdenvNoCC.mkDerivation {
     runHook preInstall
     mkdir -p $out/share/fonts
     cp -r out/. $out/share/fonts
+    ${lib.optionalString release ''
+      ${zip}/bin/zip -r $out/share/fonts/ANAKRON_${version}.zip $out/share/fonts
+    ''}
     runHook postInstall
   '';
 }
