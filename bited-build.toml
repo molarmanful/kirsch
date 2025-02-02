@@ -2,8 +2,6 @@
 name = "kirsch"
 xs = [2, 3]
 zip_includes = ["README.md", "LICENSE", "AUTHORS"]
-x_format = "{name}_{x}x"
-sfnt_lang = "English (US)"
 ttfix = '''
 f.os2_version = 4
 f.os2_vendor = "BenP"
