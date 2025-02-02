@@ -24,7 +24,7 @@ base = [
   "#b8e6de",
 ]
 
-[[font.gens]]
+[[fonts.gens]]
 name = "sample"
 txts = [
   "prog",
@@ -42,6 +42,6 @@ txts = [
   "braille",
 ]
 
-[[font.gens]]
+[[fonts.gens]]
 name = "all"
 txts = ["header", "sample"]

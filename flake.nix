@@ -3,17 +3,20 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    utils.url = "github:numtide/flake-utils";
+    flake-utils.url = "github:numtide/flake-utils";
     bited-utils = {
       url = "github:molarmanful/bited-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
   };
 
   outputs =
     {
       nixpkgs,
-      utils,
+      flake-utils,
       bited-utils,
       ...
     }:
@@ -23,7 +26,7 @@
       version = builtins.readFile ./VERSION;
     in
 
-    utils.lib.eachDefaultSystem (
+    flake-utils.lib.eachDefaultSystem (
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
