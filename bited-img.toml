@@ -1,10 +1,10 @@
-[kirsch]
+[[fonts]]
+name=kirsch
 font_size = 16
 
-[kirsch.clrs]
+[fonts.clrs]
 bg = "#140011"
 fg = "#e6cfd6"
-
 base = [
   "#330a1f",
   "#ff738a",
@@ -14,7 +14,6 @@ base = [
   "#c291f2",
   "#73e6e6",
   "#668080",
-
   "#4d1339",
   "#ff738a",
   "#73e673",
@@ -25,8 +24,9 @@ base = [
   "#b8e6de",
 ]
 
-[kirsch.gens]
-sample = [
+[[font.gens]]
+name = "sample"
+txts = [
   "prog",
   "eng",
   "multi",
@@ -41,4 +41,5 @@ sample = [
   "box",
   "braille",
 ]
-all = ["header", "sample"]
+name = "all"
+txts = ["header", "sample"]

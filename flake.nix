@@ -27,13 +27,21 @@
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        P = bited-utils.packages.${system};
+        bupkgs = bited-utils.packages.${system};
       in
       rec {
 
         packages =
           let
-            build = o: pkgs.callPackage ./. ({ inherit version P; } // o);
+            build =
+              o:
+              pkgs.callPackage ./. (
+                {
+                  inherit version;
+                  inherit (bupkgs) bited-build;
+                }
+                // o
+              );
           in
           {
             ${name} = build { pname = name; };
@@ -47,7 +55,7 @@
               release = true;
             };
             "${name}-img" = pkgs.callPackage ./img.nix {
-              inherit P;
+              inherit (bupkgs) bited-img;
               name = "${name}-img";
             };
             default = packages.${name};
@@ -64,6 +72,7 @@
             markdownlint-cli
             actionlint
             taplo
+            bupkgs.bited-clr
           ];
         };
 
