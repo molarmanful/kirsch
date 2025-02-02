@@ -1,4 +1,5 @@
-[kirsch]
+[[fonts]]
+name = "kirsch"
 xs = [2, 3]
 zip_includes = ["README.md", "LICENSE", "AUTHORS"]
 x_format = "{name}_{x}x"
@@ -13,7 +14,7 @@ for g in f.glyphs():
     g.width = 600
 '''
 
-[kirsch.sfnt]
+[[fonts.sfnt]]
 "UniqueID" = "molarmanful: kirsch: 2024"
 "Vendor URL" = "https://github.com/molarmanful/kirsch"
 "Designer" = "Benjamin Pang"
