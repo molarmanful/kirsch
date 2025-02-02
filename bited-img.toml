@@ -1,5 +1,5 @@
 [[fonts]]
-name=kirsch
+name = "kirsch"
 font_size = 16
 
 [fonts.clrs]
@@ -41,5 +41,7 @@ txts = [
   "box",
   "braille",
 ]
+
+[[font.gens]]
 name = "all"
 txts = ["header", "sample"]
