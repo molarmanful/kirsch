@@ -12,7 +12,7 @@ for g in f.glyphs():
     g.width = 600
 '''
 
-[[fonts.sfnt]]
+[fonts.sfnt]
 "UniqueID" = "molarmanful: kirsch: 2024"
 "Vendor URL" = "https://github.com/molarmanful/kirsch"
 "Designer" = "Benjamin Pang"
