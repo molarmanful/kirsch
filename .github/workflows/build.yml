@@ -2,7 +2,7 @@
 name: build
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - bited-build.toml
       - src/**
@@ -11,7 +11,7 @@ on:
       - default.nix
       - .github/workflows/build.yml
   pull_request:
-    branches: [main]
+    branches: [master]
     paths:
       - bited-build.toml
       - src/**
@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: master
           persist-credentials: false
           fetch-depth: 0
       - uses: DeterminateSystems/nix-installer-action@main
