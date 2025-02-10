@@ -28,10 +28,9 @@
 1. _(Russell A. Kirsch, 1929 - 2020)_ American engineer recognized as the
    developer of the first digital image scanner and the inventor of the pixel.
 
-1. A monospace bitmap font with a 6x16 bounding box (5px avg width, 4px
-   descent, 12px ascent, 5px x-height, 9px cap height). It draws from a variety
-   of letterforms and motifs to create a distinct humanist feel at a compact
-   size.
+1. A monospace bitmap font with a 6x16 bounding box (5px avg width, 4px descent,
+   12px ascent, 5px x-height, 9px cap height). It draws from a variety of
+   letterforms and motifs to create a distinct humanist feel at a compact size.
 
    Some glyphs come from [Cozette](https://github.com/slavfox/Cozette), often
    with modifications to adhere to kirsch's design.
@@ -68,8 +67,8 @@
 ## Installation
 
 Download from [Releases](https://github.com/molarmanful/kirsch/releases).
-Included are bitmap formats - OTB, BDF, PCF, DFONT (for Mac users) - as well as TTF.
-2x versions are available for HiDPI screens. Note that PCF doesn't contain
+Included are bitmap formats - OTB, BDF, PCF, DFONT (for Mac users) - as well as
+TTF. 2x versions are available for HiDPI screens. Note that PCF doesn't contain
 glyphs past U+FFFF.
 
 For the crispiest viewing experience, try to use the bitmap formats when
@@ -80,19 +79,17 @@ VSCode), then use the TTF at font sizes that are multiples of 16px.
 >
 > `pt = px * 72 / dpi`
 >
-> e.g. 13px on a 96dpi screen is `16px * 72 / 96dpi = 12pt`.
+> e.g. 16px on a 96dpi screen is `16px * 72 / 96dpi = 12pt`.
 
 Patched Nerd Fonts are available. The "Mono" variant uses smaller glyphs
-(single- instead of double-width) and works for terminals that can't mix
-widths.
+(single- instead of double-width) and works for terminals that can't mix widths.
 
 ### Web
 
 I would generally discourage usage of kirsch on the web due to lack of bitmap
-support. But for the stubborn and the brave, WOFF2 is available. There is also
-a [CDN-hosted
-stylesheet](https://cdn.jsdelivr.net/npm/kirsch@latest/kirsch.css) for
-convenience.
+support. But for the stubborn and the brave, WOFF2 is available. There is also a
+[CDN-hosted stylesheet](https://cdn.jsdelivr.net/npm/kirsch@latest/kirsch.css)
+for convenience.
 
 ```html
 <link
@@ -103,10 +100,10 @@ convenience.
 
 ## Design Notes
 
-Unlike my previous font [eldur](https://github.com/molarmanful/eldur), which
-had a mere 4px avg. char width to work with, kirsch has a 5px avg. char width.
-That 1px of extra width affords a surprising amount of leeway for the design.
-Far more glyphs fit comfortably into 5px width - e.g. "m" and "w" - meaning that
+Unlike my previous font [eldur](https://github.com/molarmanful/eldur), which had
+a mere 4px avg. char width to work with, kirsch has a 5px avg. char width. That
+1px of extra width affords a surprising amount of leeway for the design. Far
+more glyphs fit comfortably into 5px width - e.g. "m" and "w" - meaning that
 those glyphs won't break kerning and intrude on the spaces of neighboring
 glyphs. Glyphs that don't fit into 5px width can now work with 7px width, which
 maintains balance and legibility without affecting kerning too negatively.
@@ -117,8 +114,8 @@ maintains balance and legibility without affecting kerning too negatively.
 
 The flourishes - e.g. in "i" or "f" - are a stylistic choice, but they also
 serve a functional purpose. Without the flourishes, "i" would take up 1px of
-width, leaving 4px of awkward space. 2px flourishes on each side of the "i"
-give it a 5px width, thereby addressing the kerning issue in a stylish way.
+width, leaving 4px of awkward space. 2px flourishes on each side of the "i" give
+it a 5px width, thereby addressing the kerning issue in a stylish way.
 
 In "l"'s case, the script-style flourishes further distinguish it from other
 vertical characters like `1I|`.
@@ -129,8 +126,8 @@ vertical characters like `1I|`.
 
 One of kirsch's distinctive features is the presence of a gap at the bowls of
 the letters. Filling in the gap would make the letters either too square or too
-bunched-up, while leaving the gap open declutters the letterforms. The gaps
-also evoke script-style stroke endings.
+bunched-up, while leaving the gap open declutters the letterforms. The gaps also
+evoke script-style stroke endings.
 
 ## TODO
 
@@ -155,4 +152,5 @@ checking out.
 
 ## Licensing
 
-Made with ♥ by [the kirsch Project Authors](AUTHORS). Released under the OFL-1.1 License.
+Made with ♥ by [the kirsch Project Authors](AUTHORS). Released under the OFL-1.1
+License.

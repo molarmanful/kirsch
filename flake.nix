@@ -75,6 +75,9 @@
             markdownlint-cli
             actionlint
             taplo
+            mdformat
+            python313Packages.mdformat-gfm
+            python313Packages.mdformat-gfm-alerts
             bupkgs.bited-clr
           ];
         };
