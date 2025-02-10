@@ -5,11 +5,8 @@ zip_includes = ["README.md", "LICENSE", "AUTHORS"]
 ttfix = '''
 f.os2_version = 4
 f.os2_vendor = "BenP"
-f.os2_panose = (2, 0, 6, 9, 0, 0, 0, 0, 0, 0)
+f.os2_panose = (0, 0, 0, 9, 0, 0, 0, 0, 0, 0)
 f.os2_weight_width_slope_only = True
-f.em = 1600
-for g in f.glyphs():
-    g.width = 600
 '''
 
 [fonts.sfnt]
