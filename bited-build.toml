@@ -1,7 +1,6 @@
 [[fonts]]
 name = "kirsch"
 xs = [2, 3]
-zip_includes = ["README.md", "LICENSE", "AUTHORS"]
 ttfix = '''
 f.os2_version = 4
 f.os2_vendor = "BenP"
