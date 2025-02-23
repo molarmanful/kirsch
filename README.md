@@ -84,6 +84,12 @@ VSCode), then use the TTF at font sizes that are multiples of 16px.
 Patched Nerd Fonts are available. The "Mono" variant uses smaller glyphs
 (single- instead of double-width) and works for terminals that can't mix widths.
 
+### Nix Flakes
+
+kirsch releases are also pushed to
+[FlakeHub](https://flakehub.com/flake/molarmanful/ANAKRON). `kirsch` (aliased to
+`default`) is the base package, while `kirsch-nerd` includes Nerd Fonts patches.
+
 ### Web
 
 I would generally discourage usage of kirsch on the web due to lack of bitmap
