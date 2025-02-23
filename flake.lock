@@ -8,11 +8,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1740274150,
-        "narHash": "sha256-ZqMWWrEuVVXRAaFxi5GOo6rFCMPBBcjZfocMPperL6w=",
+        "lastModified": 1740328895,
+        "narHash": "sha256-f2gvgRQYCn88fd3FDbeYoWA/z5LHNbwBtGvJn1WI14c=",
         "owner": "molarmanful",
         "repo": "bited-utils",
-        "rev": "31894822496ed961a41f5ab2afecaf0b3eef7233",
+        "rev": "87db715c7e94f7499c3c47dedd018c16655537de",
         "type": "github"
       },
       "original": {
@@ -166,11 +166,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1739866667,
-        "narHash": "sha256-EO1ygNKZlsAC9avfcwHkKGMsmipUk1Uc0TbrEZpkn64=",
+        "lastModified": 1740126099,
+        "narHash": "sha256-ozoOtE2hGsqh4XkTJFsrTkNxkRgShxpQxDynaPZUGxk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "73cf49b8ad837ade2de76f87eb53fc85ed5d4680",
+        "rev": "32fb99ba93fea2798be0e997ea331dd78167f814",
         "type": "github"
       },
       "original": {
