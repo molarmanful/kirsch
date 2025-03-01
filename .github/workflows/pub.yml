@@ -27,7 +27,7 @@ jobs:
       - run: pnpm i
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/flakehub-cache-action@main
-      - run: echo -n ${{ github.ref_name }} > VERSION
+      - run: printf "%s" "${{ github.ref_name }}" > VERSION
       - run: nix build .#kirsch-release
       - name: push
         uses: stefanzweifel/git-auto-commit-action@v5
