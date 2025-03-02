@@ -11,7 +11,7 @@ on:
       - default.nix
       - .github/workflows/build.yml
   pull_request:
-    branches: [master]
+    branches: [main]
     paths:
       - bited-build.toml
       - src/**
@@ -31,9 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: master
           persist-credentials: false
-          fetch-depth: 0
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/flakehub-cache-action@main
       - run: nix build .#kirsch
