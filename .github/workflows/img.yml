@@ -9,7 +9,7 @@ on:
       - flake.lock
       - img.nix
       - .github/workflows/img.yml
-    branches: [master]
+    branches: [main]
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
