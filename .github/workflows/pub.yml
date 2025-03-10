@@ -38,11 +38,11 @@ jobs:
         with:
           file: result/share/fonts/*
           file_glob: true
-      - uses: "DeterminateSystems/flakehub-push@main"
+      - uses: DeterminateSystems/flakehub-push@main
         with:
-          visibility: "public"
-          name: "molarmanful/kirsch"
-          tag: "${{ inputs.tag }}"
+          visibility: public
+          name: molarmanful/kirsch
+          tag: ${{ inputs.tag }}
           include-output-paths: true
       - name: pub to npm
         run: |
