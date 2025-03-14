@@ -84,6 +84,11 @@ VSCode), then use the TTF at font sizes that are multiples of 16px.
 Patched Nerd Fonts are available. The "Mono" variant uses smaller glyphs
 (single- instead of double-width) and works for terminals that can't mix widths.
 
+### Nixpkgs
+
+Thanks to [@ejiektpobehuk](https://github.com/ejiektpobehuk), kirsch is
+available on Nixpkgs as `kirsch`.
+
 ### Nix Flakes
 
 kirsch releases are also pushed to
