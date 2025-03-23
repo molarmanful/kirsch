@@ -140,11 +140,6 @@ the letters. Filling in the gap would make the letters either too square or too
 bunched-up, while leaving the gap open declutters the letterforms. The gaps also
 evoke script-style stroke endings.
 
-## TODO
-
-- More Unicode support
-- Ligatures?
-
 ## Contributing
 
 Issues, feature/glyph requests, and pull requests are all welcome!
