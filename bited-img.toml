@@ -42,6 +42,7 @@ txts = [
   "math",
   "box",
   "braille",
+  "nerd",
 ]
 
 [[fonts.gens]]
