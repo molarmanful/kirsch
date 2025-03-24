@@ -35,6 +35,8 @@ txts = [
   "go",
   "svelte",
   "apl",
+  "bqn",
+  "uiua",
   "engalt",
   "pretty",
   "math",
