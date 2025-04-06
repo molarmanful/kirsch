@@ -10,6 +10,7 @@
 - [Overview](#overview)
 - [Gallery](#gallery)
 - [Installation](#installation)
+  - [Nerd Fonts](#nerd-fonts)
   - [Nixpkgs](#nixpkgs)
   - [Nix Flakes](#nix-flakes)
   - [Web](#web)
@@ -76,14 +77,24 @@ For the crispiest viewing experience, try to use the bitmap formats when
 possible. If bitmap fonts are not supported on your platform (e.g. Windows,
 VSCode), then use the TTF at font sizes that are multiples of 16px.
 
-> **Quick Tip**: If you need font size in pt, use the following conversion:
+> \[!TIP\]
+>
+> If you need font size in pt, use the following conversion:
 >
 > `pt = px * 72 / dpi`
 >
 > e.g. 16px on a 96dpi screen is `16px * 72 / 96dpi = 12pt`.
 
-Patched Nerd Fonts are available. The "Mono" variant uses smaller glyphs
-(single- instead of double-width) and works for terminals that can't mix widths.
+### Nerd Fonts
+
+kirsch comes with custom Nerd Fonts glyphs. Support is still WIP. For the sake
+of visual clarity, kirsch's Nerd Fonts glyphs tend to bleed heavily beyond their
+widths. I've drawn these glyphs with the expectation that they will look best
+when padded before and after with a single space.
+
+Patched Nerd Fonts that cover the rest of the Nerd Fonts are available. The
+"Mono" variant uses smaller glyphs (single- instead of double-width) and works
+for terminals that can't mix widths.
 
 ### Nixpkgs
 
