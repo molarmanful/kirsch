@@ -26,6 +26,15 @@
             version = builtins.readFile ./VERSION;
             src = ./.;
             nerd = true;
+
+            buildTransformer =
+              build:
+              build.overrideAttrs {
+                preBuild = ''
+                  mkdir -p tmp
+                  ${config.bited-utils.bited-bbl}/bin/bited-bbl --name 'kirsch Propo' --nerd --ceil < src/kirsch.bdf > tmp/kirsch_propo.bdf
+                '';
+              };
           };
 
           devshells.default = {
