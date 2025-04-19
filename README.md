@@ -9,7 +9,7 @@
 - [Table of Contents](#table-of-contents)
 - [Overview](#overview)
 - [Gallery](#gallery)
-- [Installation](#installation)
+- [Installation/Usage](#installation)
   - [Nerd Fonts](#nerd-fonts)
   - [Nixpkgs](#nixpkgs)
   - [Nix Flakes](#nix-flakes)
@@ -66,7 +66,7 @@
 </div>
 </details>
 
-## Installation
+## Installation/Usage
 
 Download from [Releases](https://github.com/molarmanful/kirsch/releases).
 Included are bitmap formats - OTB, BDF, PCF, DFONT (for Mac users) - as well as
@@ -95,6 +95,12 @@ when padded before and after with a single space.
 Patched Nerd Fonts that cover the rest of the Nerd Fonts are available. The
 "Mono" variant uses smaller glyphs (single- instead of double-width) and works
 for terminals that can't mix widths.
+
+### Propo
+
+For terminals like foot with partial bleed, a Propo variant of kirsch is
+available. This variant adjusts the glyphs such that their cells won't be cut
+off by the terminal's font renderer.
 
 ### Nixpkgs
 
