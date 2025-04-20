@@ -77,8 +77,7 @@ For the crispiest viewing experience, try to use the bitmap formats when
 possible. If bitmap fonts are not supported on your platform (e.g. Windows,
 VSCode), then use the TTF at font sizes that are multiples of 16px.
 
-> \[!TIP\]
->
+> [!TIP]
 > If you need font size in pt, use the following conversion:
 >
 > `pt = px * 72 / dpi`
