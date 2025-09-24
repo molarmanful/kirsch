@@ -110,7 +110,7 @@ available on Nixpkgs as `kirsch`.
 ### Nix Flakes
 
 kirsch releases are also pushed to
-[FlakeHub](https://flakehub.com/flake/molarmanful/ANAKRON). `kirsch` (aliased to
+[FlakeHub](https://flakehub.com/flake/molarmanful/kirsch). `kirsch` (aliased to
 `default`) is the base package, while `kirsch-nerd` includes Nerd Fonts patches.
 
 ### Web
