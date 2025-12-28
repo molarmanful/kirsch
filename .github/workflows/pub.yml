@@ -86,6 +86,7 @@ jobs:
           node-version: '*'
           registry-url: https://registry.npmjs.org
           cache: pnpm
+      - run: pnpm i
       - name: pub to npm
         run: |
           pnpm version ${{ github.ref_name }} --no-commit-hooks --no-git-tag-version --allow-same-version
