@@ -57,6 +57,7 @@
               # formatters
               nixfmt-rfc-style
               mdformat
+              yamlfmt
               python3Packages.mdformat-gfm
               python3Packages.mdformat-gfm-alerts
               # linters
