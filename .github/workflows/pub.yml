@@ -1,20 +1,70 @@
 name: pub
 on:
   push:
-    tags: ['v*']
+    tags: 
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+-[0-9]+'
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  pub:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
       id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
-          ref: main
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: pnpm/action-setup@v3
+        with:
+          version: '*'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '*'
+          cache: pnpm
+      - run: pnpm i
+      - uses: DeterminateSystems/determinate-nix-action@main
+      - uses: DeterminateSystems/flakehub-cache-action@main
+      - run: printf '%s' '${{ github.ref_name }}' | sed 's/^v//' > VERSION
+      - run: nix build .#kirsch-release
+      - name: push
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          file_pattern: VERSION
+          commit_message: 'chore: bump version to ${{ github.ref_name }}'
+  gh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: svenstaro/upload-release-action@2.7.0
+        with:
+          file: result/share/fonts/*
+          file_glob: true
+  fh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: DeterminateSystems/flakehub-push@main
+        with:
+          visibility: public
+          name: molarmanful/kirsch
+          tag: ${{ inputs.tag }}
+          include-output-paths: true
+  npm:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
       - uses: pnpm/action-setup@v3
         with:
           version: '*'
@@ -23,27 +73,6 @@ jobs:
           node-version: '*'
           registry-url: https://registry.npmjs.org
           cache: pnpm
-      - run: pnpm i
-      - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/flakehub-cache-action@main
-      - run: printf '%s' '${{ github.ref_name }}' | sed 's/^v//' > VERSION
-      - run: nix build .#kirsch-release
-      - name: push
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          file_pattern: VERSION
-          commit_message: 'chore: bump version to ${{ github.ref_name }}'
-      - name: release
-        uses: svenstaro/upload-release-action@2.7.0
-        with:
-          file: result/share/fonts/*
-          file_glob: true
-      - uses: DeterminateSystems/flakehub-push@main
-        with:
-          visibility: public
-          name: molarmanful/kirsch
-          tag: ${{ inputs.tag }}
-          include-output-paths: true
       - name: pub to npm
         run: |
           pnpm version ${{ github.ref_name }} --no-commit-hooks --no-git-tag-version --allow-same-version
