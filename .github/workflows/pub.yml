@@ -89,4 +89,4 @@ jobs:
       - name: pub to npm
         run: |
           pnpm version ${{ github.ref_name }} --no-commit-hooks --no-git-tag-version --allow-same-version
-          pnpm publish --no-git-checks
+          pnpm publish --no-git-checks --tag $([[ '${{ github.ref_name }}' =~ '-' ]] && printf 'next' || printf 'latest')
