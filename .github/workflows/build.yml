@@ -35,7 +35,7 @@ jobs:
       - uses: DeterminateSystems/flakehub-cache-action@main
       - run: nix build .#kirsch
       - name: artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: kirsch
           path: result/share/fonts
