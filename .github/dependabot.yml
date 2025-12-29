@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: weekly
       day: monday
-      time: 12:00
+      time: '12:00'
     groups:
       all:
         patterns:
