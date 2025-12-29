@@ -46,7 +46,7 @@ jobs:
           path: result/share/fonts
           key: fonts
           fail-on-cache-miss: true
-      - uses: svenstaro/upload-release-action@2.7.0
+      - uses: svenstaro/upload-release-action@2.11.3
         with:
           file: result/share/fonts/*
           file_glob: true
