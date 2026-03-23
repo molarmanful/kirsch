@@ -160,7 +160,8 @@ evoke script-style stroke endings.
 
 ## Contributing
 
-Issues, feature/glyph requests, and pull requests are all welcome!
+Issues, feature/glyph requests, and pull requests are all welcome! Font files
+are edited via [bited](https://github.com/molarmanful/bited).
 
 ## Credits
 
