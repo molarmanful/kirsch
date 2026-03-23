@@ -26,7 +26,6 @@
         {
           config,
           pkgs,
-          self',
           ...
         }:
         {
@@ -52,10 +51,9 @@
               taplo
               # lsps
               nil
-              nixd
               marksman
               # formatters
-              nixfmt-rfc-style
+              nixfmt
               mdformat
               yamlfmt
               python3Packages.mdformat-gfm
@@ -63,17 +61,8 @@
               # linters
               statix
               deadnix
+              actionlint
             ];
-          };
-
-          formatter = pkgs.writeShellApplication {
-            name = "linter";
-            runtimeInputs = self'.devShells.default.nativeBuildInputs;
-            text = ''
-              find . -iname '*.nix' -exec nixfmt {} \; -exec deadnix -e {} \; -exec statix fix {} \;
-              find . -iname '*.toml' -exec taplo fmt {} \;
-              find . -iname '*.md' -exec mdformat {} \;
-            '';
           };
         };
     };
