@@ -19,7 +19,7 @@ jobs:
           ref: ${{ github.event.repository.default_branch }}
       - uses: DeterminateSystems/determinate-nix-action@main
       - uses: DeterminateSystems/flakehub-cache-action@main
-      - run: printf "${GITHUB_REF_NAME#v}" > VERSION
+      - run: printf '%s' "${GITHUB_REF_NAME#v}" > VERSION
       - run: nix build .#kirsch-release
       - uses: actions/cache/save@v5
         id: cache
@@ -89,5 +89,5 @@ jobs:
       - run: pnpm i
       - name: pub to npm
         run: |
-          pnpm version ${{ github.ref_name }} --no-commit-hooks --no-git-tag-version --allow-same-version
-          pnpm publish --no-git-checks --tag $([[ '${{ github.ref_name }}' =~ '-' ]] && printf 'next' || printf 'latest')
+          npm pkg set "version=${GITHUB_REF_NAME#v}"
+          pnpm publish --no-git-checks --tag "$([[ '${{ github.ref_name }}' =~ '-' ]] && printf 'next' || printf 'latest')"
