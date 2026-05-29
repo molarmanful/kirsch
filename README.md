@@ -1,3 +1,35 @@
+
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="center">
+        <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=en">English</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=zh-CN">简体中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=zh-TW">繁體中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=ja">日本語</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=ko">한국어</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=hi">हिन्दी</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=th">ไทย</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=fr">Français</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=de">Deutsch</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=es">Español</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=it">Italiano</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=ru">Русский</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=pt">Português</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=nl">Nederlands</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=pl">Polski</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=ar">العربية</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=fa">فارسی</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=tr">Türkçe</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=vi">Tiếng Việt</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=id">Bahasa Indonesia</a>
+        | <a href="https://openaitx.github.io/view.html?user=molarmanful&project=kirsch&lang=as">অসমীয়া</
+      </div>
+    </div>
+  </details>
+</div>
+
 <div align="center">
 
 ![kirsch](./img/header.png)
